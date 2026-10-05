@@ -6,7 +6,7 @@
   "domain": "Karolina",
   "path": "Docs/plans/karolina/PLAN-KAR-011_project-graph-and-agent-execution.md",
   "status": "验收",
-  "version": 3,
+  "version": 4,
   "requirements": [
     "REQ-KAR-013",
     "REQ-KAR-014",
@@ -383,13 +383,13 @@
     {
       "path": "Docs/plans/evidence/PLAN-KAR-011_implementation-evidence.json",
       "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
-      "hash": "604ff89e39cfa347fb4472ccab8f84cba2c19a30ef80ee6f2e895651abefb360"
+      "hash": "15c523289102a907be61efba3608c2c379e42c188088a27e72e2d7a239e7af95"
     }
   ],
   "createdAt": "2026-10-05",
   "updatedAt": "2026-10-05",
   "assessment": {
-    "machine": "Release 构建与完整41项测试通过；图谱/设置3项、任务审批13项通过；38个JavaScript模块语法检查通过。迁移后的Docs链接、JSON与catalog检查通过；帧同步工程只读索引和源码哈希对照详见证据。",
+    "machine": "本地私有 GitHub 仓库已创建，首轮推送待完成。Release 构建与完整41项测试通过；图谱/设置3项、任务审批13项通过；38个JavaScript模块语法检查通过。迁移后的Docs链接、JSON与catalog检查通过；帧同步工程只读索引和源码哈希对照详见证据。",
     "agent": "迁移后独立只读复核无剩余P1/P2；修复了启动构建输出目录reparse point保护缺口。PowerShell语法解析通过，未以启动脚本运行应用。",
     "human": "等待用户验证独立启动、设置恢复和审批进度显示。"
   },

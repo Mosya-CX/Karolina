@@ -1,6 +1,6 @@
 {
   "planId": "PLAN-KAR-011",
-  "capturedAt": "2026-10-05T09:11:52Z",
+  "capturedAt": "2026-10-05T09:15:32Z",
   "scope": "工程图谱、统一设置、Agent 运行进度与 Karolina 独立仓库迁移",
   "build": {
     "command": "dotnet build Karolina.sln -c Release --nologo -v minimal",
@@ -62,7 +62,7 @@
     "source": "E:/Unity/Item/FrameSyncMobaDemo/Tools/Karolina",
     "destination": "E:/Github/Karolina",
     "independentSolution": true,
-    "githubRepository": "pending private repository creation and initial push",
+    "githubRepository": "https://github.com/Mosya-CX/Karolina (PRIVATE; created; initial push pending)",
     "largeDesignSources": "PSD/PNG 源稿保留在本地 Design 目录，并由 .gitignore 排除；运行时 Web 资源仍纳入仓库。",
     "parentRepositoryCommitOrPush": false,
     "parentKarolinaCleanup": "pending successful GitHub push; only Karolina source and dedicated Docs will be removed from the parent repository",
