@@ -6,7 +6,7 @@
   "domain": "Karolina",
   "path": "Docs/plans/karolina/PLAN-KAR-011_project-graph-and-agent-execution.md",
   "status": "验收",
-  "version": 4,
+  "version": 5,
   "requirements": [
     "REQ-KAR-013",
     "REQ-KAR-014",
@@ -383,15 +383,15 @@
     {
       "path": "Docs/plans/evidence/PLAN-KAR-011_implementation-evidence.json",
       "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
-      "hash": "15c523289102a907be61efba3608c2c379e42c188088a27e72e2d7a239e7af95"
+      "hash": "95023cc2dc8abc62463b3dc74d02ad442c03ad84eaa34b0b67b3238f0ece8b7c"
     }
   ],
   "createdAt": "2026-10-05",
   "updatedAt": "2026-10-05",
   "assessment": {
-    "machine": "本地私有 GitHub 仓库已创建，首轮推送待完成。Release 构建与完整41项测试通过；图谱/设置3项、任务审批13项通过；38个JavaScript模块语法检查通过。迁移后的Docs链接、JSON与catalog检查通过；帧同步工程只读索引和源码哈希对照详见证据。",
-    "agent": "迁移后独立只读复核无剩余P1/P2；修复了启动构建输出目录reparse point保护缺口。PowerShell语法解析通过，未以启动脚本运行应用。",
-    "human": "等待用户验证独立启动、设置恢复和审批进度显示。"
+    "machine": "Karolina 私有仓库已推送；4个职责提交覆盖仓库文档、Core、桌面/Web 与测试，迁出后的帧同步项目副本和专属文档已清理。Release 构建、41项测试、38个JavaScript语法检查、帧同步只读图谱扫描、Docs链接与目录校验通过。",
+    "agent": "独立只读复核无剩余P1/P2。启动脚本的构建输出链接路径拒绝保护已补齐并通过PowerShell语法解析；未由启动脚本启动应用。",
+    "human": "等待用户实际运行与视觉验收；本轮没有截图验收。"
   },
   "evidence": [
     "Docs/plans/evidence/PLAN-KAR-011_implementation-evidence.json"

@@ -1,6 +1,6 @@
 {
   "planId": "PLAN-KAR-011",
-  "capturedAt": "2026-10-05T09:15:32Z",
+  "capturedAt": "2026-10-05T09:29:29Z",
   "scope": "工程图谱、统一设置、Agent 运行进度与 Karolina 独立仓库迁移",
   "build": {
     "command": "dotnet build Karolina.sln -c Release --nologo -v minimal",
@@ -62,16 +62,18 @@
     "source": "E:/Unity/Item/FrameSyncMobaDemo/Tools/Karolina",
     "destination": "E:/Github/Karolina",
     "independentSolution": true,
-    "githubRepository": "https://github.com/Mosya-CX/Karolina (PRIVATE; created; initial push pending)",
+    "githubRepository": "https://github.com/Mosya-CX/Karolina",
     "largeDesignSources": "PSD/PNG 源稿保留在本地 Design 目录，并由 .gitignore 排除；运行时 Web 资源仍纳入仓库。",
     "parentRepositoryCommitOrPush": false,
-    "parentKarolinaCleanup": "pending successful GitHub push; only Karolina source and dedicated Docs will be removed from the parent repository",
+    "parentKarolinaCleanup": "complete: removed Tools/Karolina, 27 Karolina catalog entries, dedicated requirements/plans/evidence and architecture fact; redirected remaining Moba docs to the external repository; retained PLAN-WOLF-165 as active",
     "sourceHashAudit": {
       "filesCompared": 529,
       "missing": 0,
       "unexpectedSourceHashChanges": 0,
       "expectedTestHarnessChanges": 3
-    }
+    },
+    "repositoryVisibility": "PRIVATE",
+    "pushedInitialHead": "65d14cfc3d960efafdd24165c775d6763e8d598d"
   },
   "review": {
     "initialIndependentFindings": [
@@ -81,11 +83,11 @@
       "审批页不展示命令退出码与测试回执",
       "运行进度列表存在并发读写"
     ],
-    "status": "Initial findings repaired; migration rereview found no remaining P1/P2. A P2 output-directory reparse-point gap was found and fixed; PowerShell syntax parses cleanly. Startup behavior was not launched in this review."
+    "status": "Migration rereview found no remaining P1/P2 after the launcher output-link guard fix. PowerShell parser reports zero syntax errors; script was not used to launch the app. Moba Unity assets were not modified by this migration."
   },
   "acceptance": {
     "screenshots": false,
     "unityBuild": false,
-    "userVisualAcceptance": "待用户操作确认"
+    "userVisualAcceptance": "Not performed; no screenshots were used."
   }
 }
