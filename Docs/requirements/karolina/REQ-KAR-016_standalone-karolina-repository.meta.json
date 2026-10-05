@@ -1,0 +1,12 @@
+{
+  "id": "REQ-KAR-016",
+  "title": "Karolina 独立源码仓库",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.md",
+  "status": "激活",
+  "version": 1,
+  "tags": ["Karolina", "独立仓库", "GitHub", "工程隔离"],
+  "createdAt": "2026-10-05",
+  "updatedAt": "2026-10-05"
+}

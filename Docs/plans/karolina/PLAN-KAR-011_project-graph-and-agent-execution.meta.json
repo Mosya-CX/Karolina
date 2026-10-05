@@ -1,0 +1,399 @@
+{
+  "id": "PLAN-KAR-011",
+  "code": "0176",
+  "title": "工程图谱、Agent 执行闭环与统一设置页",
+  "type": "plan",
+  "domain": "Karolina",
+  "path": "Docs/plans/karolina/PLAN-KAR-011_project-graph-and-agent-execution.md",
+  "status": "验收",
+  "version": 3,
+  "requirements": [
+    "REQ-KAR-013",
+    "REQ-KAR-014",
+    "REQ-KAR-015",
+    "REQ-KAR-016"
+  ],
+  "requirementRefs": [
+    {
+      "id": "REQ-KAR-013",
+      "title": "工程代码与 Unity 资源关系图谱",
+      "path": "Docs/requirements/karolina/REQ-KAR-013_project-code-resource-graph.md",
+      "version": 1,
+      "status": "激活",
+      "sections": [
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "08855b1d5f7ea09bfffe1ac52627745d8e64996c607e74fdb461ee5e4c71fa64"
+    },
+    {
+      "id": "REQ-KAR-014",
+      "title": "Agent 任务验证与有限修复闭环",
+      "path": "Docs/requirements/karolina/REQ-KAR-014_agent-verification-repair-loop.md",
+      "version": 1,
+      "status": "激活",
+      "sections": [
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "ffc7368c65f275bee0376fe6b9dbf4d6078c712dbc8b36f88fba22079c3695d2"
+    },
+    {
+      "id": "REQ-KAR-015",
+      "title": "统一设置页与模型挡位预设",
+      "path": "Docs/requirements/karolina/REQ-KAR-015_unified-settings-and-model-profiles.md",
+      "version": 1,
+      "status": "激活",
+      "sections": [
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "991b8f454f9c84375763527e9d99afb6d886ea86f2e4468a2abdea7710e4b0ce"
+    },
+    {
+      "id": "REQ-KAR-016",
+      "title": "Karolina 独立源码仓库",
+      "path": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.md",
+      "version": 1,
+      "status": "激活",
+      "sections": [
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "d2d5c9028bd69d662945bad185ef46ed6bf7fdc254ef62663dd6fa242ac44070"
+    }
+  ],
+  "tags": [
+    "Karolina",
+    "工程图谱",
+    "Agent验证",
+    "统一设置"
+  ],
+  "plannedChanges": [
+    {
+      "path": "Karolina.Core/ProjectGraph.cs",
+      "operation": "add",
+      "reason": "只读建立 C# 类型与 Unity GUID 图谱，并补充多命名空间和 record struct 解析。"
+    },
+    {
+      "path": "Karolina.Core/WorkbenchSettings.cs",
+      "operation": "add",
+      "reason": "增加工程级模型预设与损坏设置备份恢复。"
+    },
+    {
+      "path": "Karolina.Core/McpClient.cs",
+      "operation": "modify",
+      "reason": "读取结构化测试回执并拒绝无效通过判定。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.cs",
+      "operation": "modify",
+      "reason": "记录真实命令/测试回执，并同步任务进度并发读写。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.Chat.cs",
+      "operation": "modify",
+      "reason": "使用设置策略并为活动任务记录运行会话。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.Routes.cs",
+      "operation": "modify",
+      "reason": "增加统一设置与损坏文件恢复 API。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/project-graph.js",
+      "operation": "add",
+      "reason": "工程图谱搜索与选择界面。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/settings.js",
+      "operation": "add",
+      "reason": "统一设置、模型失效提示与恢复状态控制。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/index.html",
+      "operation": "modify",
+      "reason": "加入图谱和设置页面、模型状态与恢复入口。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/styles/pages/chat.css",
+      "operation": "modify",
+      "reason": "呈现失效默认模型提示。"
+    },
+    {
+      "path": "Karolina.Tests/GraphSettingsChecks.cs",
+      "operation": "add",
+      "reason": "图谱、模型设置、恢复及真实测试回执的隔离验证。"
+    },
+    {
+      "path": "Karolina.Tests/Program.cs",
+      "operation": "modify",
+      "reason": "将文档测试改为独立 Karolina 可执行的通用合同。"
+    },
+    {
+      "path": "Karolina.sln",
+      "operation": "add",
+      "reason": "独立构建 Core、Desktop 和 Tests。"
+    },
+    {
+      "path": "Start-Karolina.ps1",
+      "operation": "add",
+      "reason": "从独立仓库启动并显式选择 Unity 工程。"
+    },
+    {
+      "path": "AGENTS.md",
+      "operation": "add",
+      "reason": "为独立仓库定义工程边界、文档路由和测试命令。"
+    },
+    {
+      "path": "README.md",
+      "operation": "add",
+      "reason": "描述运行方式、功能边界及独立工程结构。"
+    },
+    {
+      "path": ".gitignore",
+      "operation": "add",
+      "reason": "排除生成文件、运行态和本机美术源文件。"
+    },
+    {
+      "path": "Docs/catalog.json",
+      "operation": "add",
+      "reason": "注册 Karolina 专属需求、计划与规则。"
+    },
+    {
+      "path": "Docs/README.md",
+      "operation": "add",
+      "reason": "建立独立文档目录入口。"
+    },
+    {
+      "path": "Docs/rules/execution/RULE-KAR-001_standalone-engineering.md",
+      "operation": "add",
+      "reason": "说明独立应用工程与 Unity 外部测试项目边界。"
+    }
+  ],
+  "resourceRefs": [
+    {
+      "path": "Karolina.Core/ProjectGraph.cs",
+      "operation": "add",
+      "hash": "5793aeac4e605c2f1d0d1890616517b83f0d19ee50a482673bbdf22f026920c7",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Core/WorkbenchSettings.cs",
+      "operation": "add",
+      "hash": "be780c116f385a05ac8b9f27d70b0b9d840d331022e760bc50bf81bda961598b",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Core/McpClient.cs",
+      "operation": "modify",
+      "hash": "32584d35a46e33a4a279ca22198fccc6bb32a4e5ead6da8942c69b090cf6796d",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.cs",
+      "operation": "modify",
+      "hash": "ef96284c4fbf70959fe53c8520847426776e5ad26f4455a4e9fde5a34ed7ab26",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.Chat.cs",
+      "operation": "modify",
+      "hash": "db5412d04b8fb070020d8b61e0bc611cda6e0f708d1b68238fb4ead89dce48ba",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.Routes.cs",
+      "operation": "modify",
+      "hash": "ef7ab50372d037f20ea9215e18b1e155b06157ed222051902f960c2dcc0e52db",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/project-graph.js",
+      "operation": "add",
+      "hash": "dde9d469bf3b230047523fd134b65e8c7cfc7bdc79a64098a80ba9cbc10fe024",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/settings.js",
+      "operation": "add",
+      "hash": "aaafa7df0fc40b30c44cac676b77ac9555460b4bf8241550f1cf48a21348d780",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/index.html",
+      "operation": "modify",
+      "hash": "18ee1d87ab713145836dee3b1f3b89f591a9979159d7be888bfa2ecd261ccafd",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Desktop/Web/styles/pages/chat.css",
+      "operation": "modify",
+      "hash": "b06edcc216996da2aca3aa199164d5a4d13c67c8834a8621dc3c6df8a7545c4d",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Tests/GraphSettingsChecks.cs",
+      "operation": "add",
+      "hash": "124435ff6870f875bf8929efe8e8d318b21eb34e11a9c7c03011c7d0ef09e92f",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.Tests/Program.cs",
+      "operation": "modify",
+      "hash": "ecb0488ac45deabaf5efea6977f9f3b757d35d79ca643564d15739fdc7c87fff",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Karolina.sln",
+      "operation": "add",
+      "hash": "90f7ec72980c4c0ba96bd4c9ea45d481adfdc76424c52e9fe2fcf6d382f1e60b",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Start-Karolina.ps1",
+      "operation": "add",
+      "hash": "4363d1f234bc01cd2db2314ffb21dc0dd5cbbfcdba01ff603e176de3336c690e",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "AGENTS.md",
+      "operation": "add",
+      "hash": "f05b03d922f89cea217c99847b5d960a2ba6477e910bf293a8d2f335e3017e6c",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "README.md",
+      "operation": "add",
+      "hash": "24e0a91c28334ba75f6c3ce2d08c17398f47f5ca87c11256b37b2ac35ac51bf7",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": ".gitignore",
+      "operation": "add",
+      "hash": "92f821aeaa7ace9ec5e60033aaaebd37001e51aea80ad647fff9d61e754703a3",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Docs/catalog.json",
+      "operation": "add",
+      "hash": "d002c52de257450322365e67b1254eaf990b83268a908af1078aa80d4bb89613",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Docs/README.md",
+      "operation": "add",
+      "hash": "f37a31640b063467b9a7801884eb1ab11f8d40c79e2715d7da70dcc586bc8363",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "Docs/rules/execution/RULE-KAR-001_standalone-engineering.md",
+      "operation": "add",
+      "hash": "5c3a471a67adc3b04965915437cd13a54e4dfaa73ca849337d76ae86e9710e0a",
+      "evidence": "独立仓库中的已存在文件；哈希用于锁定当前计划证据。"
+    },
+    {
+      "path": "maintenance/build_visual_assets.py",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "736a07d9132f1e26b00ca512a743db903d1502369a5bd932a98f0602486e22b1"
+    },
+    {
+      "path": "THEMES.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "b38be3676492c0aa0326277830eef415f1fd9d945cfb55a041bb8c8cbab20787"
+    },
+    {
+      "path": "Design/interaction-art-prompts.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "44a92e0bc0a3e55e595786dbf54494c4ce428e3b4a5a6cf78f0c355889082102"
+    },
+    {
+      "path": "Design/VisualAssets/README.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "3623a3312a59a36e0196e49e1bba7424c5febe7dcac8c2b612e60750209b8141"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Separation-v001/layers.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "3a432e1e555c5713922b717490089c27b47851c82ec1cf1b51989bb1fa3ce06d"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Separation-v002/layers.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "b7a1e7d88bf37d16e5bdce22552ff753eb5e3436665b72d043e4e855534adb33"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Separation-v003/layers.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "d57dad43c8f7d63a5e366991f36c3e443b40f3356643231b00a07fcd92547058"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Separation-v004/layers.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "51e43186476a311d3ef052dedbf6ef2e6ce322f525e3b23224f73b9be3378dd6"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Separation-v005/layers.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "210ad694cb05f59ff560a652580e10ef788b41b4cfee70c005b48988745fcf51"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/OnlineInput/karolina-seethrough-square-input-v001.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "5f26448bba8b81e350a11b813f87119655fe6883e40f40d7674b917c47d55908"
+    },
+    {
+      "path": "Docs/plans/karolina/PLAN-KAR-001_original-mvp.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "95aed832daf9436bf0398f8e668caea71386f82a93505bbbd9178f565c7fd837"
+    },
+    {
+      "path": "Docs/plans/karolina/PLAN-KAR-001_original-mvp.meta.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "7a55ab54e8d1d9dc65403d84865209ac8643bda3d033b8a4d8a6bc8b77a416f3"
+    },
+    {
+      "path": "Docs/plans/karolina/PLAN-KAR-003_document-interaction-revision.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "d50cb4c7b314645afebdda90fd6f61d48c9ffe9172bf0e3b10e035b350dc9e8c"
+    },
+    {
+      "path": "Docs/plans/karolina/PLAN-KAR-010_code-quality-refinement.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "9a42d4ef3dfec75c7279dc7fff0bc4b670fce98b606f9cf0a26579a7e3df4512"
+    },
+    {
+      "path": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.md",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "d2d5c9028bd69d662945bad185ef46ed6bf7fdc254ef62663dd6fa242ac44070"
+    },
+    {
+      "path": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.meta.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "49c7d576f8332ee0643e5bb1b4afd7683b3b4a3ba89910e0ef04903c0450c10f"
+    },
+    {
+      "path": "Docs/plans/evidence/PLAN-KAR-011_implementation-evidence.json",
+      "evidence": "本轮独立仓库迁移、路径解耦与发布证据",
+      "hash": "604ff89e39cfa347fb4472ccab8f84cba2c19a30ef80ee6f2e895651abefb360"
+    }
+  ],
+  "createdAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "assessment": {
+    "machine": "Release 构建与完整41项测试通过；图谱/设置3项、任务审批13项通过；38个JavaScript模块语法检查通过。迁移后的Docs链接、JSON与catalog检查通过；帧同步工程只读索引和源码哈希对照详见证据。",
+    "agent": "迁移后独立只读复核无剩余P1/P2；修复了启动构建输出目录reparse point保护缺口。PowerShell语法解析通过，未以启动脚本运行应用。",
+    "human": "等待用户验证独立启动、设置恢复和审批进度显示。"
+  },
+  "evidence": [
+    "Docs/plans/evidence/PLAN-KAR-011_implementation-evidence.json"
+  ]
+}

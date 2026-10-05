@@ -1,0 +1,17 @@
+{
+  "id": "REQ-KAR-012",
+  "title": "构建菜单与外部GUI工具调用",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-012_build-and-launcher-tools.md",
+  "status": "激活",
+  "version": 3,
+  "tags": [
+    "Karolina",
+    "拓展工具",
+    "构建",
+    "启动器"
+  ],
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-05T04:21:23.865126+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "实际原生程序只读诊断",
+  "reviewId": "a09bef8b3a1f47b09b6bf99e4b3efcb9",
+  "state": "待审批",
+  "revision": 2,
+  "totalFiles": 100,
+  "hiddenMetaFiles": 40,
+  "visibleFiles": 60,
+  "originalRecordBytesUnchanged": true,
+  "nativeUi": [
+    "三狼野怪营地重做 · 中断工作审查 待审批 · 第 1 轮 · 60 个显示文件",
+    "三狼野怪营地重做 · 中断工作审查",
+    "显示 .meta",
+    "显示 60 / 全部 100 个文件 · 隐藏 40 个 .meta · 0 通过 · 0 不通过",
+    "批准本次任务全部变更（含 40 个隐藏 .meta）"
+  ],
+  "desktopRestartedGracefully": true,
+  "ruleSections": [
+    "facts",
+    "execution",
+    "index",
+    "templates"
+  ],
+  "registeredToolEntries": 9,
+  "documents": 280,
+  "releaseBuild": "0错误0警告",
+  "independentReview": "仅静态审查，发现已闭合，无剩余P1/P2",
+  "behaviorFixturesRun": false,
+  "screenshotAcceptance": false,
+  "unityFilesWritten": false,
+  "capturedAt": "2026-10-03T00:55:39.1205336+08:00"
+}

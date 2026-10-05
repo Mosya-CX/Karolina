@@ -1,0 +1,16 @@
+{
+  "source": "Design/KarolinaCharacter/Live2D/Candidates/karolina-front-master-v001.png",
+  "sourceSha256": "b969f78de2efb7ca9bc8a3b60b62db0b8b5b9680d6a244f6639446e85658a194",
+  "output": "Design/KarolinaCharacter/Live2D/OnlineInput/karolina-seethrough-square-input-v001.png",
+  "outputSha256": "368d1692afe0744e2ad42ead690727ee11de6d9bbb3bf9c14375276b4ab55b8d",
+  "method": "Preserve source artwork at native resolution; center on 1536x1536 white RGB canvas; add 256px on each side; no scaling or crop.",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "outputSize": [
+    1536,
+    1536
+  ],
+  "role": "Prepared input for user-authorized online See-through demo; image not uploaded."
+}

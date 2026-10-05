@@ -1,0 +1,4 @@
+/* Only the frame atom is replaced. Label, interaction, node, and indicator stay independent. */
+.k-frame-leading { stroke: var(--k-purple); stroke-dasharray: 3 2; }
+.k-frame-trailing { stroke: var(--k-cyan); }
+.k-button[data-k-group="document"] { --k-button-cut: 7px; }

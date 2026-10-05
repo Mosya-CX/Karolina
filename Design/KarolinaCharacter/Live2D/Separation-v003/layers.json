@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "status": "artwork-ready-for-import-check",
+  "source": "Design/KarolinaCharacter/Live2D/Candidates/karolina-front-master-v001.png",
+  "sourceSha256": "b969f78de2efb7ca9bc8a3b60b62db0b8b5b9680d6a244f6639446e85658a194",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "coordinateConvention": "VL/VR mean viewer left/right, not anatomical left/right",
+  "method": "explicitly authorized script separation; original-pixel partition plus recorded hidden repairs",
+  "psd": "karolina-live2d-materials.psd",
+  "drawOrder": "layers listed from back to front",
+  "layers": [
+    {
+      "id": "Skirt_Side_VR",
+      "label": "画面右侧裙摆",
+      "path": "Layers/00_Skirt_Side_VR.png",
+      "sha256": "1f904aa43e92be3b01f42af7ac0a7520d4456c10b500f584125204736c9f6d71",
+      "alphaBounds": [
+        629,
+        580,
+        890,
+        1216
+      ],
+      "sourcePixels": 50091,
+      "repairs": []
+    },
+    {
+      "id": "Skirt_Side_VL",
+      "label": "画面左侧裙摆",
+      "path": "Layers/01_Skirt_Side_VL.png",
+      "sha256": "72a73961c15be461dae0a3b2d4b3a1c988f8a2248034d4c478e6bed547c0ce7b",
+      "alphaBounds": [
+        133,
+        580,
+        384,
+        1202
+      ],
+      "sourcePixels": 52599,
+      "repairs": []
+    },
+    {
+      "id": "Skirt_Front",
+      "label": "主裙与前网裙裁片",
+      "path": "Layers/02_Skirt_Front.png",
+      "sha256": "07a05ad86faba43203a5740f5db75ef83b6fb9b4640ae06f72a6207291009c55",
+      "alphaBounds": [
+        293,
+        580,
+        710,
+        852
+      ],
+      "sourcePixels": 70630,
+      "repairs": []
+    },
+    {
+      "id": "Leg_VR_Skin",
+      "label": "白袜腿裸露部分",
+      "path": "Layers/03_Leg_VR_Skin.png",
+      "sha256": "122b4b17232d3b2aeec3493da121f8bdfb00098b482228cfccb33e2f20ed5e4c",
+      "alphaBounds": [
+        513,
+        803,
+        629,
+        1278
+      ],
+      "sourcePixels": 34543,
+      "repairs": []
+    },
+    {
+      "id": "Leg_VL_Skin",
+      "label": "深袜腿裸露部分",
+      "path": "Layers/04_Leg_VL_Skin.png",
+      "sha256": "554b670541c58dfa67f3f2098380f6f9d0995d1595e468e01985d8e476ecda3e",
+      "alphaBounds": [
+        381,
+        750,
+        501,
+        825
+      ],
+      "sourcePixels": 5175,
+      "repairs": []
+    },
+    {
+      "id": "Sock_VL",
+      "label": "深色不透长袜",
+      "path": "Layers/05_Sock_VL.png",
+      "sha256": "4bdff08df497b27d09d1b4d7a1638dc07932b1ffd129777d8d8b31a8a9df67ff",
+      "alphaBounds": [
+        384,
+        810,
+        515,
+        1274
+      ],
+      "sourcePixels": 43078,
+      "repairs": []
+    },
+    {
+      "id": "Sock_VR",
+      "label": "单层白色中筒袜",
+      "path": "Layers/06_Sock_VR.png",
+      "sha256": "ce867c27db2fa68912eb8b5b68793881c557f73ad37702133e408a6dc0d9fd81",
+      "alphaBounds": [
+        545,
+        1183,
+        626,
+        1278
+      ],
+      "sourcePixels": 6063,
+      "repairs": []
+    },
+    {
+      "id": "ThighBand_VR",
+      "label": "白袜腿上部腿环",
+      "path": "Layers/07_ThighBand_VR.png",
+      "sha256": "86df05dc3488054d7ce6596bfbd6c4ff4306cc1ef18d9b9a4e3d305a2b6af9f2",
+      "alphaBounds": [
+        515,
+        849,
+        625,
+        886
+      ],
+      "sourcePixels": 3221,
+      "repairs": []
+    },
+    {
+      "id": "Boot_VR",
+      "label": "画面右机械靴",
+      "path": "Layers/08_Boot_VR.png",
+      "sha256": "10416a7f516775b112d8fb7b63b1fd06b5866f5f3740ba2d2cc299fd0ded3729",
+      "alphaBounds": [
+        529,
+        1278,
+        924,
+        1520
+      ],
+      "sourcePixels": 22709,
+      "repairs": []
+    },
+    {
+      "id": "Boot_VL",
+      "label": "画面左机械靴",
+      "path": "Layers/09_Boot_VL.png",
+      "sha256": "c129aeed8ba59b8ac3a074a13db686b2c1da0089721338229a57f33f341141f5",
+      "alphaBounds": [
+        65,
+        1274,
+        496,
+        1521
+      ],
+      "sourcePixels": 23228,
+      "repairs": []
+    },
+    {
+      "id": "Torso_InnerTop",
+      "label": "内搭和高领",
+      "path": "Layers/10_Torso_InnerTop.png",
+      "sha256": "7512ede980514712bad713c4d69bf479bfb4d4e7d308f8d8e2ada852635ded6a",
+      "alphaBounds": [
+        150,
+        290,
+        783,
+        580
+      ],
+      "sourcePixels": 52918,
+      "repairs": []
+    },
+    {
+      "id": "Belt",
+      "label": "腰带",
+      "path": "Layers/11_Belt.png",
+      "sha256": "88461d752386510de63cf3c1bd0e904737e0e0ec8763c0544e068af1c783faf3",
+      "alphaBounds": [
+        397,
+        536,
+        551,
+        579
+      ],
+      "sourcePixels": 4391,
+      "repairs": []
+    },
+    {
+      "id": "Coat_VR",
+      "label": "画面右披肩裁片",
+      "path": "Layers/12_Coat_VR.png",
+      "sha256": "2cf1ddc41430c3607f57c0a59f6242cc03410b37d0294ce16b8f07ae77875f6b",
+      "alphaBounds": [
+        596,
+        290,
+        788,
+        570
+      ],
+      "sourcePixels": 22448,
+      "repairs": []
+    },
+    {
+      "id": "Coat_VL",
+      "label": "画面左披肩裁片",
+      "path": "Layers/13_Coat_VL.png",
+      "sha256": "d73001a4d047d2ac83c02f42209f05d0bd884471f11d7ab5d6f468a428d68538",
+      "alphaBounds": [
+        209,
+        290,
+        455,
+        567
+      ],
+      "sourcePixels": 31062,
+      "repairs": []
+    },
+    {
+      "id": "Sleeve_VR",
+      "label": "画面右袖与袖口",
+      "path": "Layers/14_Sleeve_VR.png",
+      "sha256": "01333245fe65831fdf4d2cb561fe59596b00364e5d77ee4b437ca3553e378b62",
+      "alphaBounds": [
+        661,
+        449,
+        863,
+        687
+      ],
+      "sourcePixels": 24202,
+      "repairs": []
+    },
+    {
+      "id": "Sleeve_VL",
+      "label": "画面左袖与袖口",
+      "path": "Layers/15_Sleeve_VL.png",
+      "sha256": "89fa2115d675b7cde5c33d773ea8f9769fe920262a1b2f69e74fd124fb6c7cbb",
+      "alphaBounds": [
+        137,
+        444,
+        358,
+        678
+      ],
+      "sourcePixels": 26078,
+      "repairs": []
+    },
+    {
+      "id": "Hand_VR",
+      "label": "画面右手",
+      "path": "Layers/16_Hand_VR.png",
+      "sha256": "ff9f21d1c2b21d8e82eea647bee6fce6070c8369624182858e6cb2cdb5ad7d38",
+      "alphaBounds": [
+        828,
+        651,
+        930,
+        788
+      ],
+      "sourcePixels": 6381,
+      "repairs": []
+    },
+    {
+      "id": "Hand_VL",
+      "label": "画面左手",
+      "path": "Layers/17_Hand_VL.png",
+      "sha256": "ef7587d00b7ca8f979af8485ba3cc5d1a7b3329534b08d6ccbbb33e0a955312b",
+      "alphaBounds": [
+        63,
+        646,
+        180,
+        786
+      ],
+      "sourcePixels": 7015,
+      "repairs": []
+    },
+    {
+      "id": "Face_Base",
+      "label": "脸部及耳朵底层",
+      "path": "Layers/18_Face_Base.png",
+      "sha256": "cd7324b1a1ca4181934934e18136fabf9b7269ad7c89c81fd5341b43251e23ac",
+      "alphaBounds": [
+        445,
+        103,
+        594,
+        253
+      ],
+      "sourcePixels": 5668,
+      "repairs": [
+        "AI bald-face repair resized/aligned beneath source face; original visible face pixels retained",
+        "Hidden forehead/scalp and feature sockets supplied; only small-angle modeling intended"
+      ]
+    },
+    {
+      "id": "Hair_Back",
+      "label": "后发与头顶",
+      "path": "Layers/19_Hair_Back.png",
+      "sha256": "a54b7faf06923fab71a59d16ccad30495240e405c6787dec44706b70f5873007",
+      "alphaBounds": [
+        309,
+        10,
+        822,
+        290
+      ],
+      "sourcePixels": 26030,
+      "repairs": []
+    },
+    {
+      "id": "Hair_Ponytail",
+      "label": "侧马尾",
+      "path": "Layers/20_Hair_Ponytail.png",
+      "sha256": "6d58000e4c68359e9786e6e1bc67aa0ad64ffbfcc7fd6f805b87640cdab8150d",
+      "alphaBounds": [
+        592,
+        202,
+        764,
+        453
+      ],
+      "sourcePixels": 5751,
+      "repairs": []
+    },
+    {
+      "id": "Hair_Bangs",
+      "label": "前刘海",
+      "path": "Layers/21_Hair_Bangs.png",
+      "sha256": "79792ba774459fa10e140e0e5ba3e5c96c40fecd6ddc34a8acbf6e8c45c48f51",
+      "alphaBounds": [
+        410,
+        61,
+        550,
+        189
+      ],
+      "sourcePixels": 9297,
+      "repairs": []
+    },
+    {
+      "id": "Hair_Side_VR",
+      "label": "画面右侧发",
+      "path": "Layers/22_Hair_Side_VR.png",
+      "sha256": "27f79c723bd37a353726c3bc348c5a34c8fcf984c027f86552469d6559617b1a",
+      "alphaBounds": [
+        558,
+        132,
+        591,
+        231
+      ],
+      "sourcePixels": 780,
+      "repairs": []
+    },
+    {
+      "id": "Hair_Side_VL",
+      "label": "画面左侧发",
+      "path": "Layers/23_Hair_Side_VL.png",
+      "sha256": "223fe4044ff120b562381e6c2033e70ca2027e499e303b990907bce79eb53c12",
+      "alphaBounds": [
+        387,
+        139,
+        491,
+        305
+      ],
+      "sourcePixels": 6576,
+      "repairs": []
+    },
+    {
+      "id": "Neck_Skin",
+      "label": "脖颈连接",
+      "path": "Layers/24_Neck_Skin.png",
+      "sha256": "d12b49ffd999043b6cc9239259f12f20e8232e5852005fdb5d209a08d2f208e7",
+      "alphaBounds": [
+        480,
+        233,
+        549,
+        265
+      ],
+      "sourcePixels": 1257,
+      "repairs": []
+    },
+    {
+      "id": "Hair_PonytailClasp",
+      "label": "侧马尾蝶扣",
+      "path": "Layers/25_Hair_PonytailClasp.png",
+      "sha256": "86842258a26f1d5fdbff9e500ec9a437bfd640865497a00566418987963e19ff",
+      "alphaBounds": [
+        561,
+        199,
+        623,
+        245
+      ],
+      "sourcePixels": 1667,
+      "repairs": []
+    },
+    {
+      "id": "Hair_Bow",
+      "label": "大蝴蝶结",
+      "path": "Layers/26_Hair_Bow.png",
+      "sha256": "e1ae163da150ac1dcf932396ee8874ed64a6bfa0ed08d8f2ba8b3a7db5578783",
+      "alphaBounds": [
+        308,
+        10,
+        496,
+        278
+      ],
+      "sourcePixels": 17727,
+      "repairs": []
+    },
+    {
+      "id": "Mouth_LowerLip",
+      "label": "下唇",
+      "path": "Layers/27_Mouth_LowerLip.png",
+      "sha256": "6b54bfa98d69abdb464ad15d43312444d1c20de08d1dedb968cd01eac5f8c0d1",
+      "alphaBounds": [
+        499,
+        225,
+        536,
+        230
+      ],
+      "sourcePixels": 185,
+      "repairs": []
+    },
+    {
+      "id": "Mouth_UpperLip",
+      "label": "上唇与闭嘴线",
+      "path": "Layers/28_Mouth_UpperLip.png",
+      "sha256": "7264a576044b737b0018c63956bf380dfde8c3859a52a7f098c2d83bf6f75f05",
+      "alphaBounds": [
+        499,
+        220,
+        536,
+        225
+      ],
+      "sourcePixels": 185,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VR_Sclera",
+      "label": "画面右眼白",
+      "path": "Layers/29_Eye_VR_Sclera.png",
+      "sha256": "acda2f8c28ac8fc4dd2fc16d81cd2f7f749d09b4b0ea867a986acaa7d7a02569",
+      "alphaBounds": [
+        524,
+        167,
+        566,
+        196
+      ],
+      "sourcePixels": 119,
+      "repairs": [
+        "Opaque matching sclera supplied underneath original iris; no iris repaint"
+      ]
+    },
+    {
+      "id": "Eye_VL_Sclera",
+      "label": "画面左眼白",
+      "path": "Layers/30_Eye_VL_Sclera.png",
+      "sha256": "1559da28c7b4b96f1741feba0edefbfd54ad769cdf9c430b4c540c3247c59b55",
+      "alphaBounds": [
+        450,
+        174,
+        498,
+        202
+      ],
+      "sourcePixels": 120,
+      "repairs": [
+        "Opaque matching sclera supplied underneath original iris; no iris repaint"
+      ]
+    },
+    {
+      "id": "Eye_VR_Iris",
+      "label": "画面右虹膜与瞳孔",
+      "path": "Layers/31_Eye_VR_Iris.png",
+      "sha256": "e7829d4792eaea966199417d8bba3597f2c90b038dade2acaa410b9d81b59795",
+      "alphaBounds": [
+        527,
+        172,
+        556,
+        191
+      ],
+      "sourcePixels": 440,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VL_Iris",
+      "label": "画面左虹膜与瞳孔",
+      "path": "Layers/32_Eye_VL_Iris.png",
+      "sha256": "791f041cda9a7aa6e44e753f64210167b1a616281da0f5c2928158abddc29640",
+      "alphaBounds": [
+        462,
+        178,
+        492,
+        198
+      ],
+      "sourcePixels": 445,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VR_LowerLash",
+      "label": "画面右下睫毛",
+      "path": "Layers/33_Eye_VR_LowerLash.png",
+      "sha256": "008badb885539c642db877b2debea4c2707b0821ac3e7c9e5477091d0b26b774",
+      "alphaBounds": [
+        530,
+        184,
+        563,
+        197
+      ],
+      "sourcePixels": 189,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VL_LowerLash",
+      "label": "画面左下睫毛",
+      "path": "Layers/34_Eye_VL_LowerLash.png",
+      "sha256": "71d9a1879fb27fcb481703fdf87229d5b42ca15a19b1328c21b107dbe638fb69",
+      "alphaBounds": [
+        454,
+        192,
+        489,
+        203
+      ],
+      "sourcePixels": 150,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VR_UpperLash",
+      "label": "画面右上睫毛",
+      "path": "Layers/35_Eye_VR_UpperLash.png",
+      "sha256": "59a67a58c6048b897b546973f1527c2ab689e42a0a1428f3d9e96642b7b6cdcc",
+      "alphaBounds": [
+        522,
+        164,
+        575,
+        180
+      ],
+      "sourcePixels": 322,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VL_UpperLash",
+      "label": "画面左上睫毛",
+      "path": "Layers/36_Eye_VL_UpperLash.png",
+      "sha256": "78deacbe9fa29bcfd796295927fcacf6e6003fa301d23a25cecc29c6fb6b2cba",
+      "alphaBounds": [
+        447,
+        173,
+        500,
+        191
+      ],
+      "sourcePixels": 325,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VR_Brow",
+      "label": "画面右眉",
+      "path": "Layers/37_Eye_VR_Brow.png",
+      "sha256": "cc9a794ac6782b8827450a88472caa7cf77b8ef622f21c203b951e9ff992defe",
+      "alphaBounds": [
+        523,
+        150,
+        565,
+        159
+      ],
+      "sourcePixels": 129,
+      "repairs": []
+    },
+    {
+      "id": "Eye_VL_Brow",
+      "label": "画面左眉",
+      "path": "Layers/38_Eye_VL_Brow.png",
+      "sha256": "5b4ecc0ad499a75689a4ed2ef185d3b06233f43ae012cce4c9974607d68d7494",
+      "alphaBounds": [
+        445,
+        158,
+        488,
+        167
+      ],
+      "sourcePixels": 136,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Frame",
+      "label": "手机机身与固定夹",
+      "path": "Layers/39_Phone_Frame.png",
+      "sha256": "93a4df1772cd0b6a15f6f08f6b2f54977b48b1afd9fc0256f6108fe941cfd2e0",
+      "alphaBounds": [
+        540,
+        540,
+        630,
+        666
+      ],
+      "sourcePixels": 4773,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Screen",
+      "label": "手机屏幕底层",
+      "path": "Layers/40_Phone_Screen.png",
+      "sha256": "11b411d083e0f6de980c1dc804cef05ae9a93d8f2a979c44eff668a76b185da8",
+      "alphaBounds": [
+        559,
+        548,
+        617,
+        650
+      ],
+      "sourcePixels": 4086,
+      "repairs": [
+        "Screen background reconstructed under the geometric face for future expression changes"
+      ]
+    },
+    {
+      "id": "Phone_Cheek_VR",
+      "label": "手机右侧几何点",
+      "path": "Layers/41_Phone_Cheek_VR.png",
+      "sha256": "a29999af518123471670f88909174817936eb590bc6b84e9440c50eff46b9418",
+      "alphaBounds": [
+        604,
+        602,
+        611,
+        610
+      ],
+      "sourcePixels": 49,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Cheek_VL",
+      "label": "手机左侧几何点",
+      "path": "Layers/42_Phone_Cheek_VL.png",
+      "sha256": "6bbf8d851aa47339eb3f92b69a3679d193d5998b1667bf370f25358a5ecc43bd",
+      "alphaBounds": [
+        568,
+        600,
+        575,
+        608
+      ],
+      "sourcePixels": 50,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Mouth",
+      "label": "手机嘴形",
+      "path": "Layers/43_Phone_Mouth.png",
+      "sha256": "1a60de77989961b1c14f723ed1a77409c0569b5f70360ba9bf3371f8416da756",
+      "alphaBounds": [
+        579,
+        601,
+        601,
+        618
+      ],
+      "sourcePixels": 306,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Eye_VR",
+      "label": "手机右眼",
+      "path": "Layers/44_Phone_Eye_VR.png",
+      "sha256": "0ad692393410e7d2ede4b4b2a05a1b13223b7f2180528156b48426b2d45198ed",
+      "alphaBounds": [
+        594,
+        585,
+        608,
+        599
+      ],
+      "sourcePixels": 167,
+      "repairs": []
+    },
+    {
+      "id": "Phone_Eye_VL",
+      "label": "手机左眼",
+      "path": "Layers/45_Phone_Eye_VL.png",
+      "sha256": "9dcd5d3a86293389723c06f14a6a0f09f016f97be9c8816004cb96f9dc3a116a",
+      "alphaBounds": [
+        567,
+        583,
+        582,
+        598
+      ],
+      "sourcePixels": 189,
+      "repairs": []
+    }
+  ],
+  "faceRepair": {
+    "inputSha256": "10367460f76d761eec3ea19ec79f9e8b2c9f4fbdbcded7b32b0b20abbc235064",
+    "inputAlphaBounds": [
+      403,
+      114,
+      628,
+      366
+    ],
+    "alignedSize": [
+      175,
+      149
+    ],
+    "alignedPosition": [
+      428,
+      103
+    ],
+    "generatedEarsExcluded": true
+  },
+  "verification": {
+    "losslessSourcePartitionAlphaExact": true,
+    "losslessSourcePartitionWhiteCompositeExact": true,
+    "repairedCompositeMeanAbsoluteRgbDifference": 0.3223518795437283,
+    "cubismImport": "pending"
+  },
+  "limitations": [
+    "Not a rig: no parameter bindings, meshes adjusted for motion, physics, moc3 or model3.json.",
+    "Approved master is 1024x1536; eye source details are small.",
+    "Garment layers and side skirt panels are coarse first-pass cuts; large arm/body turns need more hidden repair.",
+    "Iris completion outside the observed eye aperture is not supplied; wide gaze requires additional paint.",
+    "No software screenshots used as verification."
+  ],
+  "psdSha256": "7acca54a247657c9af91e0206c80cb664186fdb5f03d9c5925ad44d2b3dd36b8"
+}

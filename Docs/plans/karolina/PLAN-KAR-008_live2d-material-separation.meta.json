@@ -1,0 +1,60 @@
+{
+  "id": "PLAN-KAR-008",
+  "title": "Karolina Live2D 素材拆层与 PSD 制作",
+  "type": "plan",
+  "domain": "Karolina",
+  "path": "Docs/plans/karolina/PLAN-KAR-008_live2d-material-separation.md",
+  "version": 3,
+  "updatedAt": "2026-10-04T17:05:00+08:00",
+  "status": "执行",
+  "code": "0173",
+  "requirements": [
+    "REQ-KAR-009"
+  ],
+  "requirementRefs": [
+    {
+      "id": "REQ-KAR-009",
+      "title": "Karolina Live2D 建模素材",
+      "path": "Docs/requirements/karolina/REQ-KAR-009_live2d-source-art.md",
+      "version": 1,
+      "status": "激活",
+      "sections": [
+        "目标实现",
+        "技术方案",
+        "边界情况",
+        "验收条件"
+      ],
+      "hash": "9d0f97144a3836af31b935e539c86aba5a812791a2d3a0bb5e0804203d38fe21"
+    }
+  ],
+  "assessment": {
+    "materialSeparation": "用户不认可人工区域裁切原型；已选择 ModelScope 完全在线处理",
+    "tool": "https://github.com/shitagaki-lab/see-through",
+    "toolCapabilities": "最多23个语义层、自动补绘、绘制顺序、PSD输出",
+    "runtime": "云端 ModelScope；不在本机安装推理环境",
+    "preparedInput": "Design/KarolinaCharacter/Live2D/OnlineInput/karolina-seethrough-square-input-v001.png; 1536x1536; source centered without scaling or crop",
+    "imageUpload": "用户选择线上处理；尚未上传",
+    "cubismImport": "未执行；等待在线 PSD 输出",
+    "human": "原画已接受；人工裁切 PSD 已拒绝；新拆层尚未交付",
+    "desktopControl": "自动审查阻止开启单独 Edge 窗口；等待在线演示提交和下载",
+    "onlineDemo": "https://modelscope.cn/studios/ljsabc/See-Through",
+    "screenshots": false
+  },
+  "tags": [
+    "Karolina"
+  ],
+  "plannedChanges": [],
+  "estimateStatus": "旧计划未记录事前文件预估",
+  "resourceRefs": [
+    {
+      "path": "Design/KarolinaCharacter/Live2D/Candidates/karolina-front-master-v001.png",
+      "hash": "b969f78de2efb7ca9bc8a3b60b62db0b8b5b9680d6a244f6639446e85658a194",
+      "evidence": "正文/工程取证包含精确路径；迁移时核对文件存在和SHA-256，仅为资源关联，不补造执行/测试证据"
+    },
+    {
+      "path": "Design/KarolinaCharacter/Live2D/OnlineInput/karolina-seethrough-square-input-v001.png",
+      "hash": "368d1692afe0744e2ad42ead690727ee11de6d9bbb3bf9c14375276b4ab55b8d",
+      "evidence": "正文/工程取证包含精确路径；迁移时核对文件存在和SHA-256，仅为资源关联，不补造执行/测试证据"
+    }
+  ]
+}

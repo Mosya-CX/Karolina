@@ -1,0 +1,23 @@
+{
+  "id": "REQ-KAR-009",
+  "title": "Karolina Live2D 建模素材",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-009_live2d-source-art.md",
+  "version": 1,
+  "updatedAt": "2026-10-04T13:34:49.207455+08:00",
+  "status": "激活",
+  "related": [
+    "REQ-KAR-008"
+  ],
+  "implementationState": "原画已接受，拆层执行方式确认中",
+  "sources": [
+    {
+      "kind": "user-instruction",
+      "description": "用户接受正面原画并指示继续拆层"
+    }
+  ],
+  "tags": [
+    "Karolina"
+  ]
+}

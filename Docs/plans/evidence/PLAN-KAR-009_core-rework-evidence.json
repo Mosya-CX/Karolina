@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-05",
+  "screenshots": false,
+  "scope": "Isolated temporary project; no production decisions, Unity operations or Git mutation",
+  "suites": [
+    {
+      "suite": "FunctionReworkChecks",
+      "exitCode": 0,
+      "output": "PASS 说明协议拒绝空元素、缺数组、重复路径与无具体操作\r\nPASS 人工导入模型不参与审批且不能生成Agent操作说明\r\nPASS 冻结差异补充说明独立于作者、单文件和整体决定\r\nPASS 资源差异接口不返回YAML原文，代码仍有逐行差异\r\nPASS 说明先全量验证，错误路径不能导致部分保存\r\nPASS Agent文件缺少说明不能单独或整体批准，但允许有理由退回\r\nPASS 说明绑定文件指纹，后台修改失效，旧版本输入拒绝\r\nPASS 说明与人工模型来源重启后持久保存\r\nPASS 超大代码说明上下文有界，明确未完整分析\r\nPASS 一个工具注册多个函数，父声明hash锁定函数，拒绝未知函数与嵌套组\r\nFunction rework checks: 10 passed, 0 failed; isolated fixture only.\r\n"
+    },
+    {
+      "suite": "FunctionPolishChecks",
+      "exitCode": 0,
+      "output": "PASS 所有文档标签去空去重、最多10个且规则可更新\r\nPASS 计划进入执行前要求预估，预估与真实资源分离\r\nPASS 资源参考支持默认全选/空选，拒绝越界与非计划资源\r\nPASS 关闭计划允许索引补充，正文/生命周期/事前预估仍冻结\r\nPASS 历史冻结资源后来被删，补其他关联不丢原证据\r\nPASS 来源补丁完整核对尾部空行、换行和无末尾换行标记\r\nPASS Unity字段投影仅作内部冻结说明证据，二进制不伪造行为\r\nPASS 实时快照默认来源未知，meta永久排除且基线保留\r\nPASS 真实文件补丁认领Agent，人工动画排除，拒绝陈旧归属\r\nPASS 后台更新保留摘要/未变意见，变化失效且后续Agent补丁可再次证明\r\nPASS 退回保留意见，重执行已变文件重审，来源人工确认后整体通过\r\nPASS 固定构建菜单不能取消暂停标记或通过虚假菜单绕过\r\nPASS GUI启动返回PID且不等待退出，测试只启动自有临时进程\r\nFunction polish checks: 13 passed, 0 failed; isolated fixture only.\r\n"
+    },
+    {
+      "suite": "TaskReviewChecks",
+      "exitCode": 0,
+      "output": "PASS 事后整理显示来源，只收录有证据候选且保护既有无关内容\r\nPASS 代码冻结前后差异可读取\r\nPASS 事后补充清点保留同一条目和最初基线\r\nPASS 拒绝重复启动与无理由文件驳回\r\nPASS 用户仅提交新摘要也禁止维护重导入覆盖\r\nPASS 逐文件通过、定位行意见、陈旧修订拒绝\r\nPASS 已有人工意见不能被维护重导入覆盖\r\nPASS 有不通过文件不能整体批准，整体退回保留意见\r\nPASS 返回再执行保留原基线，变化重审、不变结论保留\r\nPASS 审批时内容变化拒绝，整理后新文件不会漏掉\r\nPASS 临时任务整体通过不改工程正文、不产生 Git 操作\r\nPASS 整理输入内容指纹过期、越界和重复路径可见失败\r\nPASS 正常任务仍用开始前实际内容，不把既有修改当任务新增\r\nTask review checks: 13 passed, 0 failed; isolated fixture only.\r\n"
+    }
+  ]
+}

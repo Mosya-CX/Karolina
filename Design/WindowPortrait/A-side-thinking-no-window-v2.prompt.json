@@ -1,0 +1,10 @@
+{
+  "tool": "image_gen.imagegen",
+  "useCase": "precise-object-edit",
+  "transparentBackground": true,
+  "editTarget": "A-side-thinking-v1.png",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied Karolina seated side-profile illustration. Remove ONLY the literal window in the upper right: all vertical frame, crossbars, glass pane, ledge, and the pink scenery within the window must be gone. Replace that region with true transparency, with at most the same faint fading violet ambient glow present elsewhere. Keep the exact same character identity, eyes, facial expression, lifted head and thoughtful gaze direction, hand on chin, other hand on laptop keyboard, seated pose, costume, hair bow, phone, chair, laptop and desk unchanged. Do not add any wall, physical window, opening, scenery, frame, architecture or new object. This is a transparent character-and-working-laptop cutout to overlay on an existing app background. Preserve composition and image dimensions, the pink/cyan/violet colors and existing soft illumination. Do not put a checkerboard into the image; use real alpha transparency. No text or watermark.",
+  "sourceOutput": "exec-a91ed0e0-3a33-44ea-98c0-12e3946af6e8.png",
+  "projectOutput": "A-side-thinking-no-window-v2.png",
+  "runtimeOutput": "../../Karolina.Desktop/Web/themes/karolina/assets/chat-portrait-window-a.png"
+}

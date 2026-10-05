@@ -1,0 +1,8 @@
+{
+  "command": "dotnet build Karolina.Desktop/Karolina.Desktop.csproj -c Release --no-restore --output artifacts/current --nologo -v minimal",
+  "chunk_id": "3041d6",
+  "wall_time_seconds": 4.037424,
+  "exit_code": 0,
+  "original_token_count": 74,
+  "output": "  Karolina.Core -> E:\\Unity\\Item\\FrameSyncMobaDemo\\Tools\\Karolina\\artifacts\\current\\Karolina.Core.dll\r\n  Karolina.Desktop -> E:\\Unity\\Item\\FrameSyncMobaDemo\\Tools\\Karolina\\artifacts\\current\\Karolina.Desktop.dll\r\n\r\n已成功生成。\r\n    0 个警告\r\n    0 个错误\r\n\r\n已用时间 00:00:03.47\r\n"
+}

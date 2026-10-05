@@ -1,0 +1,14 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparentBackground": true,
+  "editTarget": "sleep-v1-rejected.png",
+  "identityReference": "../B-flat-sticker.png",
+  "prompt": "Use case: precise-object-edit. Image 1 is the sleep-pose sprite to repair, image 2 is the approved B character identity and legwear reference. Correct ONLY the lower body anatomy and legwear of image 1. Keep the entire head, bow, hair, face, closed-eye sleeping expression, hands against cheek, upper torso, cape, colors, thick-outline flat-sticker chibi style and proportions unchanged. Redraw below the skirt as an anatomically clear, modest and natural SIDE-SITTING REST POSE with EXACTLY TWO legs folded together toward the viewer's RIGHT, not an overlapping tangle. Make the two thigh/knee/calf chains clearly identifiable; no extra knee, disconnected flesh shape, third leg, duplicate calf or amputated limb. The leg on the viewer's LEFT wears ONE continuous dark thigh-high stocking down to its own black/violet mechanical boot; show that far leg partly behind the foreground leg with simple understandable overlap. The foreground leg on the viewer's RIGHT is BARE from its upper thigh through its knee to below the knee, with ONE SINGLE SHORT WHITE CALF SOCK just above its OWN small mechanical boot. Absolutely no dark stocking patch, extra dark band or second sock on this white-sock leg. Keep the clothing coverage modest, short legs and oversized head of the approved B chibi. Thigh strap may be tucked under skirt or simplified; prioritize readable anatomy. Exactly TWO matching compact boots, feet tucked close together to the right, both fully attached to their correct calves; far boot can be partially occluded but never a second boot merged into the near boot. Pose should look like a small relaxed sleeping chibi sitting on the ground with bent legs naturally together, not crossed thigh contortions. Do not change costume design, add any phone or Agent face, chair, ground, blanket, bed, pillow, text or sleeping letters. Same single complete sprite, true transparent RGBA background, preserve image canvas and framing, no checkerboard.",
+  "sourceOutput": "exec-b720b33a-0a30-4c59-a80c-7dfb583bfb02.png",
+  "outputs": [
+    "sleep-fixed-v2.png",
+    "sleep.png",
+    "../../../Karolina.Desktop/Web/themes/karolina/assets/pet-sleep.png"
+  ],
+  "scope": "睡姿下半身的两腿折叠关系、膝盖/小腿连接与单层白短袜修正"
+}

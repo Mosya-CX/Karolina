@@ -1,0 +1,13 @@
+{
+  "id": "REQ-KAR-007",
+  "title": "工作模式、规则板块与拓展工具",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-007_workspace-modes-tools.md",
+  "version": 4,
+  "updatedAt": "2026-10-05T05:36:13.2396332+00:00",
+  "status": "激活",
+  "tags": [
+    "Karolina"
+  ]
+}

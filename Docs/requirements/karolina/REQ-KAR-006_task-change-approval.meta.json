@@ -1,0 +1,15 @@
+{
+  "id": "REQ-KAR-006",
+  "title": "任务变更审批与反馈再执行",
+  "type": "requirement",
+  "domain": "Karolina",
+  "status": "激活",
+  "path": "Docs/requirements/karolina/REQ-KAR-006_task-change-approval.md",
+  "version": 3,
+  "createdAt": "2026-10-02",
+  "code": "REQ-KAR-006",
+  "updatedAt": "2026-10-03T00:47:25.605412+08:00",
+  "tags": [
+    "Karolina"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparentBackground": true,
+  "outputs": [
+    {
+      "id": "petWave",
+      "refs": [
+        "Design/DesktopPet/B-flat-sticker.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit the supplied approved Karolina B flat-sticker chibi sprite into ONE action pose. Preserve EXACTLY the same wide oversized head, tiny body, short limbs, half-lidded violet eyes, plum/lavender chunky hair, large upper-left asymmetrical black/white/lilac bow, right braid, black/white cyber geek cape and tiny triangular-panel skirt, mismatched dark leg stocking/ONE short white sock, tiny mechanical boots. Keep the same flat thick dark-plum outline, clean color blocks and one-step shadows, playful and adorable personality. Match original canvas, character scale and position as closely as possible; maintain head size and foot baseline for animation swapping. One full character, entire bow/cape/feet included. True transparent RGBA, no ground rectangle or shadow background, no text, labels, extra character, UI. Absolutely NO PHONE, tablet, hanging gadget, little K face, or robot companion on her body. Change only pose/expression as specified: friendly greeting: one tiny hand raised next to her cheek with open mitten palm, other hand at her hip, head tilted slightly, mischievous but sweet little smile, one eye lightly winked. Both feet planted. No prop.",
+      "project": "Design/DesktopPet/Actions/wave.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/pet-wave.png",
+      "sourceOutput": "exec-eb0a1637-3b44-4a2e-9f9d-9e56fc09ade6.png"
+    },
+    {
+      "id": "petSleep",
+      "refs": [
+        "Design/DesktopPet/B-flat-sticker.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit the supplied approved Karolina B flat-sticker chibi sprite into ONE action pose. Preserve EXACTLY the same wide oversized head, tiny body, short limbs, half-lidded violet eyes, plum/lavender chunky hair, large upper-left asymmetrical black/white/lilac bow, right braid, black/white cyber geek cape and tiny triangular-panel skirt, mismatched dark leg stocking/ONE short white sock, tiny mechanical boots. Keep the same flat thick dark-plum outline, clean color blocks and one-step shadows, playful and adorable personality. Match original canvas, character scale and position as closely as possible; maintain head size and foot baseline for animation swapping. One full character, entire bow/cape/feet included. True transparent RGBA, no ground rectangle or shadow background, no text, labels, extra character, UI. Absolutely NO PHONE, tablet, hanging gadget, little K face, or robot companion on her body. Change only pose/expression as specified: resting/sleeping: sitting curled comfortably with knees tucked to the side, tiny hands gently folded against cheek, eyes peacefully closed with a tiny smile. Keep the head and bow original size, use the lower portion of the same canvas for the compact seated body; do not zoom in. No bed, pillow, blanket, chair or sleeping text.",
+      "project": "Design/DesktopPet/Actions/sleep.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/pet-sleep.png",
+      "sourceOutput": "exec-9018fd73-ccc0-4229-ad0c-61c68b4e8f66.png",
+      "status": "superseded: user reported leg anatomy issue",
+      "originalProject": "Design/DesktopPet/Actions/sleep-v1-rejected.png",
+      "currentRevision": "Design/DesktopPet/Actions/sleep-fixed-v2.prompt.json"
+    },
+    {
+      "id": "petWork",
+      "refs": [
+        "Design/DesktopPet/B-flat-sticker.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit the supplied approved Karolina B flat-sticker chibi sprite into ONE action pose. Preserve EXACTLY the same wide oversized head, tiny body, short limbs, half-lidded violet eyes, plum/lavender chunky hair, large upper-left asymmetrical black/white/lilac bow, right braid, black/white cyber geek cape and tiny triangular-panel skirt, mismatched dark leg stocking/ONE short white sock, tiny mechanical boots. Keep the same flat thick dark-plum outline, clean color blocks and one-step shadows, playful and adorable personality. Match original canvas, character scale and position as closely as possible; maintain head size and foot baseline for animation swapping. One full character, entire bow/cape/feet included. True transparent RGBA, no ground rectangle or shadow background, no text, labels, extra character, UI. Absolutely NO PHONE, tablet, hanging gadget, little K face, or robot companion on her body. Change only pose/expression as specified: focused game developer at work: seated compactly cross-legged with a tiny thin modern dark laptop open in her lap, both small hands touching its keyboard, concentrated slight frown with the original mischievous eyes. Only this tiny laptop prop, no desk or room. Laptop lid has two tiny triangle lines, no screen face, name, brand, keyboard labels or text. Keep full figure original scale not zoomed.",
+      "project": "Design/DesktopPet/Actions/work.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/pet-work.png",
+      "sourceOutput": "exec-10cd5496-8518-4fe4-92ae-2de8792a94b3.png"
+    },
+    {
+      "id": "petWalkA",
+      "refs": [
+        "Design/DesktopPet/B-flat-sticker.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit the supplied approved Karolina B flat-sticker chibi sprite into ONE action pose. Preserve EXACTLY the same wide oversized head, tiny body, short limbs, half-lidded violet eyes, plum/lavender chunky hair, large upper-left asymmetrical black/white/lilac bow, right braid, black/white cyber geek cape and tiny triangular-panel skirt, mismatched dark leg stocking/ONE short white sock, tiny mechanical boots. Keep the same flat thick dark-plum outline, clean color blocks and one-step shadows, playful and adorable personality. Match original canvas, character scale and position as closely as possible; maintain head size and foot baseline for animation swapping. One full character, entire bow/cape/feet included. True transparent RGBA, no ground rectangle or shadow background, no text, labels, extra character, UI. Absolutely NO PHONE, tablet, hanging gadget, little K face, or robot companion on her body. Change only pose/expression as specified: walking cycle frame A, three-quarter front view like reference, torso tilted just slightly to the RIGHT. RIGHT FOOT stepped a little forward, LEFT FOOT a little behind, opposite tiny arms swing naturally. Very small gait, no large pose or head-size change. Hair and cape follow with a tiny trailing swing. Maintain both boots near same original baseline.",
+      "project": "Design/DesktopPet/Actions/walk-a.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/pet-walk-a.png",
+      "sourceOutput": "exec-60adce24-036c-42e7-aabb-0116f90b24a8.png"
+    },
+    {
+      "id": "petWalkB",
+      "refs": [
+        "Design/DesktopPet/B-flat-sticker.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit the supplied approved Karolina B flat-sticker chibi sprite into ONE action pose. Preserve EXACTLY the same wide oversized head, tiny body, short limbs, half-lidded violet eyes, plum/lavender chunky hair, large upper-left asymmetrical black/white/lilac bow, right braid, black/white cyber geek cape and tiny triangular-panel skirt, mismatched dark leg stocking/ONE short white sock, tiny mechanical boots. Keep the same flat thick dark-plum outline, clean color blocks and one-step shadows, playful and adorable personality. Match original canvas, character scale and position as closely as possible; maintain head size and foot baseline for animation swapping. One full character, entire bow/cape/feet included. True transparent RGBA, no ground rectangle or shadow background, no text, labels, extra character, UI. Absolutely NO PHONE, tablet, hanging gadget, little K face, or robot companion on her body. Change only pose/expression as specified: walking cycle frame B, same three-quarter front view and torso direction RIGHT. LEFT FOOT stepped a little forward, RIGHT FOOT a little behind, opposite tiny arms swing naturally. Very small gait, no large pose or head-size change. Hair and cape follow with a tiny trailing swing. Maintain both boots near same original baseline.",
+      "project": "Design/DesktopPet/Actions/walk-b.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/pet-walk-b.png",
+      "sourceOutput": "exec-0ac29723-38a1-4092-9e18-57d169f0246c.png"
+    },
+    {
+      "id": "portraitPlan",
+      "refs": [
+        "Design/WindowPortrait/A-side-thinking-no-window-v2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit this Karolina seated profile workstation cutout to depict FORMULATING A PLAN. Keep exact character identity, age, face shape, violet dispersed iris, hairstyle/bow, clothes, same narrow desk, seat, working laptop, viewpoint, whole-figure framing, original size, pink/cyan/violet soft atmosphere and transparent RGBA. Change pose meaningfully: lean just slightly toward desk; her head is now looking DOWN thoughtfully at a small open cream-paper notebook lying flat next to the laptop. One hand holds a slim stylus/pencil and annotates a simple diagram of THREE triangular nodes linked with thin lines; other hand lightly supports the notebook. Laptop remains on and directly in front of her, oblique editor display. Quiet planning expression, no looking at viewer. Notebook is small and believable on desk, not a giant floating board or hologram. The final cutout includes only the physical character, desk, chair, laptop and small open notebook, NO wall/window/scene or environmental background, no readable labels/text, drones, other figures or big planets. Preserve one single short white sock on one leg, dark stocking on the other, refined thigh band and low mechanical boots. Maintain silhouette and framing; do not change costume or add accessories.",
+      "project": "Design/WindowPortrait/mode-plan-v1.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/chat-portrait-plan.png",
+      "sourceOutput": "exec-dd3fa1e9-fca1-4f71-ae39-bd54e8cc3376.png"
+    },
+    {
+      "id": "portraitExecute",
+      "refs": [
+        "Design/WindowPortrait/A-side-thinking-no-window-v2.png"
+      ],
+      "prompt": "Use case: identity-preserve. Edit this Karolina seated profile workstation cutout to depict EXECUTING A GAME DEVELOPMENT TASK. Keep exact character identity, age, face shape, violet dispersed iris, hairstyle/bow, clothes, same narrow desk, seat, laptop, viewpoint, whole-figure framing, original size, pink/cyan/violet soft atmosphere and transparent RGBA. Change pose meaningfully: leaning forward slightly with attentive eyes directed DOWN toward laptop screen, BOTH forearms naturally on desk and BOTH hands operating keyboard/trackpad. No chin-in-hand, no looking up/window, no folded hands. Active confident focused expression, hair/cape with subtle diagonal movement while body remains naturally seated. Open modern laptop is directly in front in correct perspective, screen has tiny code/editor blocks and small game viewport with no readable text. Includes only physical character, chair, desk and laptop; NO literal window/wall/scene/background, floating screens, drones, extra figures, planet or props. Preserve one single short white sock on one leg, dark stocking on other, refined thigh band and low mechanical boots. Do not redesign clothes, eye style or add headphones.",
+      "project": "Design/WindowPortrait/mode-execute-v1.png",
+      "runtime": "Karolina.Desktop/Web/themes/karolina/assets/chat-portrait-execute.png",
+      "sourceOutput": "exec-3bcfb1a7-22b2-4572-9e83-06496649eae8.png"
+    }
+  ]
+}

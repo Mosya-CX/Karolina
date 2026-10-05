@@ -1,0 +1,14 @@
+{
+  "collectedAt": "2026-10-04T14:04:24.8651786+08:00",
+  "application": "Karolina Live2D Assistant",
+  "endpoint": "ws://127.0.0.1:22033",
+  "approved": true,
+  "apiVersion": "0.9.1",
+  "documents": {
+    "PhysicsDocuments": [],
+    "ModelingDocuments": [],
+    "AnimationDocuments": []
+  },
+  "method": "GetDocuments",
+  "screenshotsUsed": false
+}

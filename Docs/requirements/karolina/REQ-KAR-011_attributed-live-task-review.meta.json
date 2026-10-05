@@ -1,0 +1,17 @@
+{
+  "id": "REQ-KAR-011",
+  "title": "有来源归属的自动任务审批",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-011_attributed-live-task-review.md",
+  "status": "激活",
+  "version": 3,
+  "tags": [
+    "Karolina",
+    "任务审批",
+    "来源归属",
+    "改动说明"
+  ],
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-05T04:21:23.864019+00:00"
+}

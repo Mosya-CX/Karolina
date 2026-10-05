@@ -1,0 +1,68 @@
+{
+  "planId": "PLAN-KAR-010",
+  "revision": "workspace-preferences-r6",
+  "at": "2026-10-05T05:38:31.4722249+00:00",
+  "change": "Startup always stays on AI conversation; persisted workspace state contains the conversation mode only.",
+  "legacyMigration": "Reads only the mode from ignored .karolina/state/view.json, writes preferences.json, then removes view.json without using its page or selection fields.",
+  "releaseBuild": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "javaScriptSyntaxModules": [
+    "workspace.js",
+    "app.js",
+    "core/context.js"
+  ],
+  "sourceFiles": [
+    {
+      "path": "Karolina.Core/ProjectContext.cs",
+      "sha256": "f5e185ff801b8136dd542096bfd07d063d76f19a1bf611cd860f51535723d47f"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.cs",
+      "sha256": "973b64f12bcea0c6f04c1584f336720720b36d58e5f09b60ed90fc15e4cf4396"
+    },
+    {
+      "path": "Karolina.Desktop/Workbench.Routes.cs",
+      "sha256": "44b3569cf6a689b9308df9967ba849a37fa150b487d9e040e8199aa7297c1e67"
+    },
+    {
+      "path": "Karolina.Desktop/Web/core/context.js",
+      "sha256": "555e791263ab4bdd806deb3a614a3d4a98275a5ee6fddcdce296a1edc7e5d496"
+    },
+    {
+      "path": "Karolina.Desktop/Web/workspace.js",
+      "sha256": "11b9c184da5a1917d74e30830bdbda56ec44d186ec7085d37f2ce0a03179a6fe"
+    },
+    {
+      "path": "Karolina.Desktop/Web/index.html",
+      "sha256": "7a917b32c8cfcce46235f716a379b52863f18760de7a01cc2198fbcc77d6f0be"
+    },
+    {
+      "path": "Docs/requirements/karolina/REQ-KAR-007_workspace-modes-tools.md",
+      "sha256": "1af5b7e8bfc12854d3d58a7d205a09e6238e672d8857a05e73b4c859f390ad4f"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "artifacts/current",
+      "webFiles": 129,
+      "webMatchesSource": true,
+      "desktopAssemblyHash": "24dbe820d95e72581397c58a9ede805035d2f014781ccc08470a2dc28b81f0c9",
+      "coreAssemblyHash": "c895f5dd8e33c49b41bfec126861a8e1061e23d4d7ecde11f6e4d032236a73ff"
+    },
+    {
+      "path": "Karolina.Desktop/bin/Release/net8.0-windows",
+      "webFiles": 129,
+      "webMatchesSource": true,
+      "desktopAssemblyHash": "24dbe820d95e72581397c58a9ede805035d2f014781ccc08470a2dc28b81f0c9",
+      "coreAssemblyHash": "c895f5dd8e33c49b41bfec126861a8e1061e23d4d7ecde11f6e4d032236a73ff"
+    }
+  ],
+  "sourceReview": "Read changed source and call sites; no independent agent review for r6.",
+  "userExitConfirmed": true,
+  "behaviorTestsExecuted": false,
+  "screenshotsUsed": false,
+  "unityFilesChanged": false,
+  "gitPushExecuted": false
+}

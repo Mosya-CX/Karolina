@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "psdSha256": "7a05da770c6afed0eb06e8685af77cfbc2b496fbabab11c6100e882af4de79a0",
+  "layers": 46,
+  "channelComparisons": 184,
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "rgb8bit": true,
+  "embeddedIcc": true,
+  "uniqueLayerNames": true,
+  "allChannelsMatchPng": true,
+  "mergedChannelsMatchPreview": true,
+  "pillowIndependentDecode": true,
+  "approvedSourceHashUnchanged": true,
+  "independentlyDecodedSourcePartitionExact": true,
+  "appearanceRegionMetrics": {
+    "head": {
+      "box": [
+        305,
+        0,
+        650,
+        300
+      ],
+      "meanAbsoluteRgbDifference": 0.6978325281803542
+    },
+    "phone": {
+      "box": [
+        540,
+        535,
+        635,
+        672
+      ],
+      "meanAbsoluteRgbDifference": 1.1876040466128828
+    },
+    "body": {
+      "box": [
+        50,
+        260,
+        940,
+        1536
+      ],
+      "meanAbsoluteRgbDifference": 0.3915240158266117
+    }
+  },
+  "cubismImport": "pending",
+  "softwareScreenshotsUsed": false
+}

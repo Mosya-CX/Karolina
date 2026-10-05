@@ -1,0 +1,28 @@
+{
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    "实际 exe 提取图标与定制 K 蝶 ICO 像素一致",
+    "原生窗口 WM_GETICON 任务栏图标与定制 K 蝶 ICO 一致",
+    "真实 Windows 鼠标拖动主目录分隔线并保存",
+    "文档页面恢复 300px 后接受真实拖动",
+    "审批文件列恢复 310px 后接受真实拖动",
+    "审批差异区可真实拖动高度并保存",
+    "对话与输入区分隔线接受真实 Windows 拖动",
+    "拖动区域后焦点与真实中英文键盘输入正常",
+    "完全退出重开保留五个区域的保存尺寸",
+    "重开的界面实际恢复列宽，可继续真实拖动",
+    "原生窗口正常完全退出"
+  ],
+  "icons": {
+    "windowMatch": 1,
+    "executableMatch": 1
+  },
+  "screenshots": false,
+  "input": "Windows SetCursorPos/mouse_event/SendInput; UIA 仅定位与读值",
+  "motion": "off：原生尺寸定位用无动效设置；默认动效另由协议/DOM检查覆盖",
+  "dpiScalesObserved": [
+    1.5,
+    1.25
+  ]
+}

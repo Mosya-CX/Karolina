@@ -1,0 +1,57 @@
+{
+  "id": "PLAN-KAR-004",
+  "title": "当前版本与最小 Git 工作流实施",
+  "type": "plan",
+  "domain": "Karolina",
+  "status": "关闭",
+  "path": "Docs/plans/karolina/PLAN-KAR-004_current-version-git-implementation.md",
+  "version": 21,
+  "createdAt": "2026-10-02",
+  "code": "0169",
+  "requirements": [
+    "REQ-KAR-005",
+    "REQ-KAR-004"
+  ],
+  "requirementRefs": [
+    {
+      "id": "REQ-KAR-005",
+      "title": "当前版本与最小 Git 工作流",
+      "status": "激活",
+      "version": 1,
+      "path": "Docs/requirements/karolina/REQ-KAR-005_current-version-git-workflow.md",
+      "sections": [
+        "目标实现",
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "99156c84b1806cecfad1112b28ec394256063a178cf2e827eeb0fc394ad84a99"
+    },
+    {
+      "id": "REQ-KAR-004",
+      "title": "文档生命周期与工作台交互",
+      "status": "激活",
+      "version": 1,
+      "path": "Docs/requirements/karolina/REQ-KAR-004_document-workbench-interaction.md",
+      "sections": [
+        "目标实现",
+        "技术方案",
+        "边界情况",
+        "验收条件",
+        "附录"
+      ],
+      "hash": "85719ac68a08fd3e29a17cfe0bc497f2f7fff54f019a325b1545eeecf731294f"
+    }
+  ],
+  "updatedAt": "2026-10-02T21:02:14.666044+08:00",
+  "closedAt": "2026-10-02T21:02:14.666044+08:00",
+  "conclusion": "用户取消 Git 产品方向，由 PLAN-KAR-005 承接任务变更审批；原计划取消结束，不宣称人工验收通过。",
+  "outcome": "被后续方案替代",
+  "tags": [
+    "Karolina"
+  ],
+  "plannedChanges": [],
+  "estimateStatus": "旧计划未记录事前文件预估",
+  "resourceRefs": []
+}

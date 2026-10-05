@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "my-karolina",
+  "name": "我的 Karolina · 示例",
+  "description": "最小替换示例；其余元素继承默认外观。",
+  "tokens": { "--k-button-cut": "7px", "--k-button-node-size": "3px" },
+  "icons": { "chat": "icons/chat.svg" },
+  "components": { "button-frame": "components/button-frame.css" }
+}

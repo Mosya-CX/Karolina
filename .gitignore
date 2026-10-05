@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+/artifacts/
+/.karolina/
+/Design/**/*.psd
+/Design/**/*.png
+.vs/
+.idea/
+*.user
+*.suo
+*.tmp
+Thumbs.db
+Desktop.ini

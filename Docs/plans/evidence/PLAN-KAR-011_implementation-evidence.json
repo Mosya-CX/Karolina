@@ -1,0 +1,91 @@
+{
+  "planId": "PLAN-KAR-011",
+  "capturedAt": "2026-10-05T09:11:52Z",
+  "scope": "工程图谱、统一设置、Agent 运行进度与 Karolina 独立仓库迁移",
+  "build": {
+    "command": "dotnet build Karolina.sln -c Release --nologo -v minimal",
+    "exitCode": 0,
+    "warnings": 0,
+    "errors": 0
+  },
+  "checks": [
+    {
+      "name": "图谱、设置恢复与真实测试回执",
+      "command": "dotnet run --no-build --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "任务审批回归",
+      "command": "dotnet run --no-build --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --task-reviews",
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "name": "完整隔离测试套件",
+      "command": "dotnet run --no-build --project Karolina.Tests/Karolina.Tests.csproj -c Release -- E:/Github/Karolina",
+      "passed": 41,
+      "failed": 0
+    },
+    {
+      "name": "Web JavaScript 语法检查",
+      "command": "node --experimental-default-type=module --check <each Karolina.Desktop/Web/**/*.js>",
+      "passedModules": 38,
+      "failedModules": 0
+    },
+    {
+      "name": "Standalone documentation integrity",
+      "markdownLinksBroken": 0,
+      "docsJsonFiles": 57,
+      "catalogEntries": 28,
+      "catalogPathsMissing": 0
+    },
+    {
+      "name": "Launcher path safety source review",
+      "powershellParseErrors": 0,
+      "outputSymlinkRejection": "Reviewed",
+      "processLaunched": false
+    }
+  ],
+  "frameSyncProjectReadOnlyIndex": {
+    "root": "E:/Unity/Item/FrameSyncMobaDemo",
+    "indexed": true,
+    "filesScanned": 1123,
+    "skippedFiles": 35,
+    "nodes": 2836,
+    "edges": 9525,
+    "unresolvedGuids": 437,
+    "warnings": 135,
+    "interpretation": "未解析 GUID 可能属于外部、内置或重复 GUID；扫描不确认其为工程缺陷，不自动修复。未读取或修改 Unity 资源。"
+  },
+  "migration": {
+    "source": "E:/Unity/Item/FrameSyncMobaDemo/Tools/Karolina",
+    "destination": "E:/Github/Karolina",
+    "independentSolution": true,
+    "githubRepository": "pending private repository creation and initial push",
+    "largeDesignSources": "PSD/PNG 源稿保留在本地 Design 目录，并由 .gitignore 排除；运行时 Web 资源仍纳入仓库。",
+    "parentRepositoryCommitOrPush": false,
+    "parentKarolinaCleanup": "pending successful GitHub push; only Karolina source and dedicated Docs will be removed from the parent repository",
+    "sourceHashAudit": {
+      "filesCompared": 529,
+      "missing": 0,
+      "unexpectedSourceHashChanges": 0,
+      "expectedTestHarnessChanges": 3
+    }
+  },
+  "review": {
+    "initialIndependentFindings": [
+      "多个 block namespace 与 record struct 的 C# 类型误识别",
+      "失效默认模型无提示",
+      "损坏设置可能被表单默认值覆盖",
+      "审批页不展示命令退出码与测试回执",
+      "运行进度列表存在并发读写"
+    ],
+    "status": "Initial findings repaired; migration rereview found no remaining P1/P2. A P2 output-directory reparse-point gap was found and fixed; PowerShell syntax parses cleanly. Startup behavior was not launched in this review."
+  },
+  "acceptance": {
+    "screenshots": false,
+    "unityBuild": false,
+    "userVisualAcceptance": "待用户操作确认"
+  }
+}

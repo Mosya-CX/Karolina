@@ -1,0 +1,12 @@
+{
+  "id": "REQ-KAR-015",
+  "title": "统一设置页与模型挡位预设",
+  "type": "requirement",
+  "domain": "Karolina",
+  "path": "Docs/requirements/karolina/REQ-KAR-015_unified-settings-and-model-profiles.md",
+  "status": "激活",
+  "version": 1,
+  "tags": ["Karolina", "统一设置", "模型挡位", "任务配置", "外观"],
+  "createdAt": "2026-10-05",
+  "updatedAt": "2026-10-05"
+}

@@ -1,0 +1,40 @@
+{
+  "revision": "functional-polish-r3",
+  "at": "2026-10-05T04:26:21.888046+00:00",
+  "scope": "Release compilation, source and frozen data inspection only; no new behavior tests, screenshots, real model run, Unity build, GUI launch, production approvals or Git writes",
+  "releaseBuild": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "sourceIndexHash": "57280890933d2c9960a0089e5494f36bf90eb7291f5b5d52cebbacca3b8e34ca",
+  "outputs": [
+    {
+      "path": "Karolina.Desktop/bin/Release/net8.0-windows",
+      "webFiles": 126,
+      "webMatchesSource": true,
+      "desktopDllHash": "9ea494ff04bea3a796af39e328bbf0e7534759ca7bf7dc73353ebca747efa0db"
+    },
+    {
+      "path": "artifacts/current",
+      "webFiles": 126,
+      "webMatchesSource": true,
+      "desktopDllHash": "9ea494ff04bea3a796af39e328bbf0e7534759ca7bf7dc73353ebca747efa0db"
+    }
+  ],
+  "independentReview": "Two P2 issues corrected; read-only follow-up found no remaining P1/P2 within reviewed increment",
+  "review": {
+    "id": "a09bef8b3a1f47b09b6bf99e4b3efcb9",
+    "revision": 7,
+    "state": "待审批",
+    "humanModels": 2,
+    "humanAnimationClips": 16,
+    "baselineDecisionsNotesSummaryUnchanged": true
+  },
+  "changes": [
+    "Independent approval model/effort with lightweight-family defaults and explicit fallback selection",
+    "Task/run scoped real generation phase, duration, streamed characters, saved counts, errors, stop and restart state",
+    "Codex connection refresh gate separate from tool execution; fail-fast tools preserve actual task mutex",
+    "Whole tool group and individual operation collapse with aligned cards"
+  ],
+  "priorBehaviorEvidence": "r2 behavior evidence applies to r2 only; no r3 behavior test executed"
+}

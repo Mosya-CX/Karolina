@@ -1,0 +1,10 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparentBackground": true,
+  "editTarget": "Karolina-chibi-v1.png",
+  "prompt": "Use case: precise-object-edit. Edit target is existing Karolina chibi sprite. Remove ONLY the black smartphone clipped to the character's hip, its screen face, and its mounting clip. Fill the vacated area with a natural continuation of the existing black/violet skirt panel and belt. Do not add any hanging accessory or any geometric face on the costume. Keep the existing face, hairstyle, bow, body proportions, clothing, color, standing pose and entire silhouette unchanged. This is a cleanup of the existing sprite, not a new chibi style. Preserve true RGBA transparency and clean alpha edges. No new objects or text.",
+  "sourceOutput": "exec-31b0da36-70f4-447a-9c6f-15aab0075eaf.png",
+  "projectOutput": "Karolina-chibi-v1-no-phone.png",
+  "runtimeOutput": "../../Karolina.Desktop/Web/themes/karolina/assets/karolina-desktop-pet.png",
+  "status": "过渡图，仅清理旧图手机；新风格待用户选择"
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "activePlan": "PLAN-KAR-011",
+  "entries": [
+    {
+      "id": "FACT-KAR-001",
+      "path": "Docs/rules/facts/FACT-KAR-001_karolina-architecture-review.md",
+      "metadata": "Docs/rules/facts/FACT-KAR-001_karolina-architecture-review.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-001",
+      "path": "Docs/plans/karolina/PLAN-KAR-001_original-mvp.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-001_original-mvp.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-002",
+      "path": "Docs/plans/karolina/PLAN-KAR-002_workbench-reconstruction.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-002_workbench-reconstruction.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-003",
+      "path": "Docs/plans/karolina/PLAN-KAR-003_document-interaction-revision.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-003_document-interaction-revision.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-004",
+      "path": "Docs/plans/karolina/PLAN-KAR-004_current-version-git-implementation.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-004_current-version-git-implementation.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-005",
+      "path": "Docs/plans/karolina/PLAN-KAR-005_task-change-approval-implementation.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-005_task-change-approval-implementation.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-006",
+      "path": "Docs/plans/karolina/PLAN-KAR-006_workspace-modes-tools.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-006_workspace-modes-tools.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-007",
+      "path": "Docs/plans/karolina/PLAN-KAR-007_visual-system-customization.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-007_visual-system-customization.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-008",
+      "path": "Docs/plans/karolina/PLAN-KAR-008_live2d-material-separation.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-008_live2d-material-separation.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-009",
+      "path": "Docs/plans/karolina/PLAN-KAR-009_existing-function-polish.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-009_existing-function-polish.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-010",
+      "path": "Docs/plans/karolina/PLAN-KAR-010_code-quality-refinement.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-010_code-quality-refinement.meta.json"
+    },
+    {
+      "id": "PLAN-KAR-011",
+      "path": "Docs/plans/karolina/PLAN-KAR-011_project-graph-and-agent-execution.md",
+      "metadata": "Docs/plans/karolina/PLAN-KAR-011_project-graph-and-agent-execution.meta.json"
+    },
+    {
+      "id": "REQ-KAR-001",
+      "path": "Docs/requirements/karolina/REQ-KAR-001_workbench-product.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-001_workbench-product.meta.json"
+    },
+    {
+      "id": "REQ-KAR-003",
+      "path": "Docs/requirements/karolina/REQ-KAR-003_core-workbench-knowledge.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-003_core-workbench-knowledge.meta.json"
+    },
+    {
+      "id": "REQ-KAR-004",
+      "path": "Docs/requirements/karolina/REQ-KAR-004_document-workbench-interaction.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-004_document-workbench-interaction.meta.json"
+    },
+    {
+      "id": "REQ-KAR-005",
+      "path": "Docs/requirements/karolina/REQ-KAR-005_current-version-git-workflow.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-005_current-version-git-workflow.meta.json"
+    },
+    {
+      "id": "REQ-KAR-006",
+      "path": "Docs/requirements/karolina/REQ-KAR-006_task-change-approval.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-006_task-change-approval.meta.json"
+    },
+    {
+      "id": "REQ-KAR-007",
+      "path": "Docs/requirements/karolina/REQ-KAR-007_workspace-modes-tools.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-007_workspace-modes-tools.meta.json"
+    },
+    {
+      "id": "REQ-KAR-008",
+      "path": "Docs/requirements/karolina/REQ-KAR-008_visual-system-customization.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-008_visual-system-customization.meta.json"
+    },
+    {
+      "id": "REQ-KAR-009",
+      "path": "Docs/requirements/karolina/REQ-KAR-009_live2d-source-art.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-009_live2d-source-art.meta.json"
+    },
+    {
+      "id": "REQ-KAR-010",
+      "path": "Docs/requirements/karolina/REQ-KAR-010_document-context-and-resource-index.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-010_document-context-and-resource-index.meta.json"
+    },
+    {
+      "id": "REQ-KAR-011",
+      "path": "Docs/requirements/karolina/REQ-KAR-011_attributed-live-task-review.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-011_attributed-live-task-review.meta.json"
+    },
+    {
+      "id": "REQ-KAR-012",
+      "path": "Docs/requirements/karolina/REQ-KAR-012_build-and-launcher-tools.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-012_build-and-launcher-tools.meta.json"
+    },
+    {
+      "id": "REQ-KAR-013",
+      "path": "Docs/requirements/karolina/REQ-KAR-013_project-code-resource-graph.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-013_project-code-resource-graph.meta.json"
+    },
+    {
+      "id": "REQ-KAR-014",
+      "path": "Docs/requirements/karolina/REQ-KAR-014_agent-verification-repair-loop.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-014_agent-verification-repair-loop.meta.json"
+    },
+    {
+      "id": "REQ-KAR-015",
+      "path": "Docs/requirements/karolina/REQ-KAR-015_unified-settings-and-model-profiles.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-015_unified-settings-and-model-profiles.meta.json"
+    },
+    {
+      "id": "REQ-KAR-016",
+      "path": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.md",
+      "metadata": "Docs/requirements/karolina/REQ-KAR-016_standalone-karolina-repository.meta.json"
+    },
+    {
+      "id": "RULE-KAR-001",
+      "path": "Docs/rules/execution/RULE-KAR-001_standalone-engineering.md",
+      "metadata": "Docs/rules/execution/RULE-KAR-001_standalone-engineering.meta.json"
+    }
+  ]
+}
