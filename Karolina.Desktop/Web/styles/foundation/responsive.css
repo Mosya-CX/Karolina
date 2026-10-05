@@ -1,0 +1,4 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+@media(max-width:1150px){.sidebar{width:230px}.toc{display:none}.markdown{padding:22px 30px}.composer-tools{flex-wrap:wrap}.topbar{padding:15px 22px}}
+@media(max-width:850px){.sidebar{width:190px}.rail{width:50px}.composer-tools select{max-width:145px}.welcome-chips{flex-wrap:wrap}.markdown{padding:20px}.messages{padding:20px}}
+@media(max-width:1150px){.review-files{width:225px}.execution-plan{flex-wrap:wrap}.execution-plan select{max-width:250px}}

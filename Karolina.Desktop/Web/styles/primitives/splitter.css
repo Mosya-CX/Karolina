@@ -1,0 +1,27 @@
+.k-splitter { flex: 0 0 6px; position: relative; z-index: 4; touch-action: none; outline: none; background: transparent; }
+.k-splitter::after { content: ''; position: absolute; border-radius: 2px; background: var(--k-cyan); opacity: 0; transition: opacity var(--k-motion-fast); }
+.k-splitter[data-axis="x"] { width: 6px; cursor: col-resize; }
+.k-splitter[data-axis="x"]::after { inset: 12% 2px; }
+.k-splitter[data-axis="y"] { height: 6px; min-height: 6px; cursor: row-resize; }
+.k-splitter[data-axis="y"]::after { inset: 2px 12%; }
+.k-splitter:hover::after, .k-splitter:focus-visible::after { opacity: .8; }
+body[data-resizing] { user-select: none; }
+body[data-resizing="x"], body[data-resizing="x"] * { cursor: col-resize !important; }
+body[data-resizing="y"], body[data-resizing="y"] * { cursor: row-resize !important; }
+.sidebar { width: var(--k-layout-sidebar, var(--k-sidebar-width)); }
+.toc { width: var(--k-layout-toc, 170px); }
+.toc[hidden] + .k-splitter { display: none; }
+.review-files { width: var(--k-layout-reviewFiles, 245px); }
+.review-layout { min-height: 240px; height: var(--k-layout-reviewHeight, max(360px, 52vh)); }
+.composer-wrap { height: var(--k-layout-composer, auto); overflow: auto; flex-shrink: 0; }
+html[style*="--k-layout-composer"] .composer-wrap { display: flex; flex-direction: column; }
+html[style*="--k-layout-composer"] .composer { display: flex; flex-direction: column; flex: 1; }
+html[style*="--k-layout-composer"] .composer > textarea { flex: 1; max-height: none; }
+.messages { min-height: 100px; }
+.chat-page { overflow: auto; }
+.chat-page > .approval { flex: 0 1 auto; max-height: 30%; min-height: 0; overflow: auto; }
+dialog { resize: both; overflow: auto; min-width: min(360px, 90vw); min-height: 180px; max-width: calc(100vw - 32px); }
+.drawer-header { cursor: move; touch-action: none; }
+.drawer-header button { cursor: pointer; }
+@media (max-width: 1150px) { .toc + .k-splitter { display: none; } }
+@media (max-width: 740px) { body > .k-splitter, .review-files + .k-splitter { display: none; } .sidebar { width: 250px; } .review-files { width: 100%; } }

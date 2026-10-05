@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Karolina.Core/Karolina.Core.csproj" /></ItemGroup>
+  <PropertyGroup><ApplicationIcon>Resources/karolina.ico</ApplicationIcon></PropertyGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/karolina.ico" LogicalName="Karolina.Desktop.ApplicationIcon" /></ItemGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" /></ItemGroup>
+  <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><Content Include="Web/**/*" CopyToOutputDirectory="Always" /></ItemGroup>
+  <!-- SDK 同时添加 WPF/WinForms 引用；本应用只使用 WinForms，避免带入 WPF 程序集。 -->
+  <Target Name="UseOnlyWinFormsWebView2" BeforeTargets="ResolveAssemblyReferences">
+    <ItemGroup><Reference Remove="@(Reference)" Condition="'%(Reference.Filename)' == 'Microsoft.Web.WebView2.Wpf'" /></ItemGroup>
+  </Target>
+</Project>

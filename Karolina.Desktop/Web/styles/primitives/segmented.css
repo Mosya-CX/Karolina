@@ -1,0 +1,5 @@
+.workflow-modes { display: flex; gap: 4px; padding: 4px 14px 10px; }
+.workflow-modes .k-button { flex: 1; min-width: 0; font-size: 12px; }
+.workflow-modes .k-button.selected { background: linear-gradient(110deg, var(--k-accent-soft), color-mix(in srgb, var(--k-purple) 15%, transparent)); }
+.meta-tabs { gap: 5px; flex-wrap: wrap; }
+.meta-tabs .k-button { flex: 1; }

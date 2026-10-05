@@ -1,0 +1,9 @@
+:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 3px; }
+.k-button:focus-visible { outline: none; background: var(--k-button-hover-bg); }
+.k-button:focus-visible .k-frame-line { stroke: var(--k-focus); stroke-width: 2.5; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--k-focus); outline: 2px solid color-mix(in srgb, var(--k-focus) 35%, transparent); outline-offset: 1px; }
+@media (forced-colors: active) {
+    .k-button { border: 1px solid ButtonText; clip-path: none; }
+    .k-button:focus-visible { outline: 2px solid Highlight; }
+    .k-icon { forced-color-adjust: none; }
+}

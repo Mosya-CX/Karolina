@@ -1,0 +1,54 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+.review-provenance{white-space:pre-line;overflow-wrap:anywhere;margin:0 0 14px;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--accent-soft);font-size:12px;line-height:1.7}
+.diff-panel{flex:1;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.diff-title{padding:17px 22px;border-bottom:1px solid var(--line);font-size:12px;overflow-wrap:anywhere}
+.diff{flex:1;overflow:auto;font-family:Consolas,monospace;font-size:12px;line-height:1.8}
+.diff-line{display:flex;white-space:pre;min-width:max-content}
+.diff-line .number{flex-shrink:0;width:48px;text-align:right;padding-right:10px;user-select:none;color:var(--muted)}
+.diff-line .text{padding:0 16px;flex:1}
+.diff-line.added{background:var(--added);color:var(--green)}
+.diff-line.deleted{background:var(--deleted);color:var(--red)}
+.diff-line.hunk{background:var(--code);color:var(--muted)}
+.approval{padding:15px 24px;margin:8px 24px;border:1px solid var(--accent);border-radius:10px;font-size:13px}
+.approval pre{max-height:150px;overflow:auto;white-space:pre-wrap}
+.approval button{margin-right:10px}
+.review-page{display:flex;flex-direction:column;min-height:0}
+.review-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 22px;border-bottom:1px solid var(--line);font-size:12px}
+.review-toolbar button{font-size:12px}
+.review-content{flex:1;overflow:auto;min-height:0}
+.review-overview{padding:18px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+.review-overview label{display:block;margin-top:12px;font-size:12px;color:var(--muted)}
+.review-overview textarea{display:block;width:100%;margin-top:7px;resize:vertical;font-size:13px;line-height:1.65}
+.review-overview-actions{display:flex;gap:14px;align-items:center;margin-top:9px;font-size:12px;color:var(--muted)}
+.review-execution-progress{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--code)}
+.review-execution-progress summary{cursor:pointer;color:var(--accent)}
+.review-execution-progress p{margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.review-execution-progress ol{max-height:180px;overflow:auto;margin:0;padding-left:22px;color:var(--muted)}
+.review-execution-progress li{margin:4px 0;overflow-wrap:anywhere}
+.review-layout{display:flex;min-height:420px;height:52vh;border-bottom:1px solid var(--line)}
+.review-files{width:270px;flex-shrink:0;border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column}
+.review-files .search{width:100%}
+#reviewFiles{flex:1;overflow:auto}
+.review-file{display:block;width:100%;text-align:left;border:0;background:none;border-radius:7px;padding:10px 8px;font-size:12px;overflow-wrap:anywhere}
+.review-file span{display:block}
+.review-file small{display:block;color:var(--muted);margin-top:5px}
+.review-file.active{background:var(--accent-soft)}
+.review-detail{display:flex;flex:1;min-width:0;flex-direction:column}
+.review-file-facts{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px 18px;background:var(--code);font:11px/1.7 Consolas,monospace}
+.review-binary{padding:20px;white-space:normal;font-family:inherit;color:var(--muted)}
+.review-file-approval{border-top:1px solid var(--line);padding:11px 16px;font-size:12px}
+.review-file-approval textarea{width:100%;display:block;resize:vertical;font-size:12px;margin:7px 0}
+.review-file-approval button{font-size:12px;margin-right:6px}
+#reviewNotes{max-height:110px;overflow:auto}
+.review-note{padding:6px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.review-note p{margin:3px 0;white-space:pre-wrap}
+.review-note small{color:var(--muted)}
+.review-task-approval{padding:16px 24px}
+.review-task-approval label{font-size:12px;color:var(--muted)}
+.review-task-approval textarea{display:block;width:100%;resize:vertical;font-size:12px;margin:7px 0 12px}
+.review-task-approval small{display:block;color:var(--muted);font-size:11px;margin-top:10px}
+.review-task small{display:block;font-size:11px;color:var(--muted);margin-top:5px}
+.review-attempt{padding:12px;font-size:12px;border-bottom:1px solid var(--line);white-space:pre-wrap}
+.review-overview details{font-size:12px;margin-top:12px}
+.diff button.number{border:0;background:none;border-radius:0;padding:0 10px 0 0;font-family:inherit;font-size:inherit;width:48px}
+.diff button.number:hover{color:var(--accent);background:var(--accent-soft)}

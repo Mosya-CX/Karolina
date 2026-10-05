@@ -1,0 +1,5 @@
+/* A separate geometric expression display, independent of the pet sprite and its movement. */
+.k-agent-closeup-region { display: grid; grid-template-columns: var(--k-agent-closeup-size, 56px) minmax(0, 1fr); align-items: center; align-self: stretch; gap: 12px; padding: 9px 10px; border: 1px solid var(--k-line); border-radius: var(--k-radius); background: color-mix(in srgb, var(--k-panel) 70%, transparent); }
+.k-agent-closeup-region .k-agent-phone { width: var(--k-agent-closeup-size, 56px); height: var(--k-agent-closeup-size, 56px); padding: 5px; transform: none; border-color: color-mix(in srgb, var(--k-cyan) 30%, transparent); background: var(--k-code); border-radius: 9px; }
+.k-agent-closeup-region small { margin: 0; font-size: 11px; line-height: 1.5; min-width: 0; }
+@media (max-height: 720px) { .k-agent-closeup-region { --k-agent-closeup-size: 44px; padding-block: 6px; } }

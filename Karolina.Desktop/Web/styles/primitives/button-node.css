@@ -1,0 +1,14 @@
+.k-corner-node {
+    position: absolute;
+    width: var(--k-button-node-size);
+    height: var(--k-button-node-size);
+    top: var(--k-button-node-y);
+    left: var(--k-button-node-x);
+    background: var(--k-pink);
+    border-radius: 50%;
+    opacity: .7;
+    transition: transform var(--k-motion-medium), background var(--k-motion-fast);
+}
+.k-button:hover .k-corner-node { background: var(--k-cyan); transform: translate(-2px, 1px); }
+.k-button.selected .k-corner-node, .k-button.active .k-corner-node { background: var(--k-pink); }
+.k-button.primary .k-corner-node { background: var(--k-purple); }

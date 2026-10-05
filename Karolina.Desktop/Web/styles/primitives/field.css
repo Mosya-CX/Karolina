@@ -1,0 +1,16 @@
+input:not([type="checkbox"]):not([type="range"]):not([type="color"]), textarea, select {
+    background: var(--k-panel);
+    color: var(--k-text);
+    border: 1px solid var(--k-line);
+    border-radius: calc(var(--k-radius) * .6);
+    padding: 9px 11px;
+    transition: border-color var(--k-motion-fast), background var(--k-motion-fast);
+}
+input::placeholder, textarea::placeholder { color: var(--k-muted); opacity: .72; }
+input:hover, select:hover, textarea:hover { border-color: color-mix(in srgb, var(--k-cyan) 40%, var(--k-line)); }
+input[type="checkbox"], input[type="range"] { accent-color: var(--k-purple); }
+input[type="checkbox"] { width: 14px; height: 14px; }
+input[type="color"] { width: 44px; height: 32px; padding: 2px; border: 1px solid var(--k-line); border-radius: 5px; background: var(--k-panel); }
+textarea { line-height: 1.7; }
+select { min-height: 32px; }
+.k-field-label { display: flex; flex-direction: column; gap: 7px; color: var(--k-muted); font-size: 12px; }

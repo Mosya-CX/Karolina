@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "paper",
+  "name": "Karolina · 轻阅读",
+  "description": "保留品牌，降低装饰与背景比重；也是部分覆盖主题的示例。",
+  "tokens": {
+    "--k-button-node-size": "2px",
+    "--k-panel-blur": "8px",
+    "--k-mascot-height": "116px"
+  },
+  "colorModes": {
+    "light": {
+      "--k-bg": "#edf0fa",
+      "--k-panel": "#f7f8ff",
+      "--k-panel-raised": "#ffffff",
+      "--k-panel-glass": "#f7f8fff2",
+      "--k-text": "#29304e",
+      "--k-muted": "#616b8b",
+      "--k-line": "#606c992a",
+      "--k-accent": "#7554c0",
+      "--k-accent-soft": "#ae97e320",
+      "--k-code": "#e6eaf5",
+      "--k-button-bg": "#edf0faf0",
+      "--k-button-hover-bg": "#dde6f9",
+      "--k-button-border": "#6f75a78c",
+      "--k-success": "#08796d",
+      "--k-danger": "#ab395e",
+      "--k-added": "#59c4ae25",
+      "--k-deleted": "#eb789d25",
+      "--k-focus": "#087f99"
+    }
+  },
+  "components": {
+    "button-frame": "button-frame.css"
+  },
+  "effect": {
+    "intensity": 0.12
+  }
+}

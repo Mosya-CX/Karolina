@@ -1,0 +1,7 @@
+@keyframes k-page-in { from { opacity: .4; transform: translate(7px, 3px); } to { opacity: 1; transform: none; } }
+@keyframes k-brand-idle { 50% { opacity: .85; transform: translateY(-2px); } }
+html[data-motion="full"] .welcome-wordmark .k-brand-image { animation: k-brand-idle 7s ease-in-out infinite; }
+html[data-motion="reduced"] *, html[data-motion="off"] * { animation: none !important; scroll-behavior: auto !important; }
+html[data-motion="reduced"] { --k-motion-fast: 70ms; --k-motion-medium: 70ms; --k-motion-slow: 70ms; }
+html[data-motion="reduced"] .k-button:hover, html[data-motion="off"] .k-button:hover, html[data-motion="off"] .k-button:active { transform: none; }
+html[data-motion="off"] { --k-motion-fast: 0ms; --k-motion-medium: 0ms; --k-motion-slow: 0ms; }

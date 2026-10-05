@@ -1,0 +1,70 @@
+/* Stable variables shared by every skin. A manifest may override any --k-* atom. */
+:root {
+    --k-font-ui: "HarmonyOS Sans SC", "Microsoft YaHei UI", system-ui, sans-serif;
+    --k-font-code: "Cascadia Code", Consolas, monospace;
+    --k-bg: #080d21;
+    --k-panel: #0d1530;
+    --k-panel-raised: #14203d;
+    --k-panel-glass: #101a31e8;
+    --k-text: #e8edff;
+    --k-muted: #9ba8c6;
+    --k-line: #8ca2db35;
+    --k-pink: #ed7fce;
+    --k-cyan: #55dce7;
+    --k-purple: #a48af7;
+    --k-blue: #69a9f6;
+    --k-accent: #b1a0ff;
+    --k-accent-soft: #8870e52b;
+    --k-success: #70dbc4;
+    --k-danger: #f28faa;
+    --k-code: #080e23;
+    --k-added: #4dd9ae18;
+    --k-deleted: #ec719925;
+    --k-button-bg: #10203b9e;
+    --k-button-border: #9baed976;
+    --k-button-hover-bg: #17324a;
+    --k-button-cut: 10px;
+    --k-button-node-size: 4px;
+    --k-button-node-x: 87%;
+    --k-button-node-y: 8px;
+    --k-button-indicator-size: 7px;
+    --k-button-indicator-y: 3px;
+    --k-button-min-height: 34px;
+    --k-button-padding-x: 15px;
+    --k-button-padding-y: 8px;
+    --k-icon-size: 18px;
+    --k-rail-width: 68px;
+    --k-sidebar-width: 260px;
+    --k-radius: 10px;
+    --k-panel-blur: 16px;
+    --k-motion-fast: 140ms;
+    --k-motion-medium: 260ms;
+    --k-motion-slow: 600ms;
+    --k-motion-easing: cubic-bezier(.2,.8,.2,1);
+    --k-focus: #79e7ed;
+    --k-scene-position: center center;
+    --k-scene-filter: saturate(.96) brightness(1.12);
+    --k-space-unit: 4px;
+    --k-mascot-height: 148px;
+    --k-body-font-size: 14px;
+    --k-scene-opacity: .8;
+    --k-mascot-visible: 1;
+    --bg: var(--k-bg);
+    --panel: var(--k-panel);
+    --text: var(--k-text);
+    --muted: var(--k-muted);
+    --line: var(--k-line);
+    --accent: var(--k-accent);
+    --accent-soft: var(--k-accent-soft);
+    --code: var(--k-code);
+    --green: var(--k-success);
+    --red: var(--k-danger);
+    --added: var(--k-added);
+    --deleted: var(--k-deleted);
+}
+html { color-scheme: dark; }
+html[data-color-mode="light"] { color-scheme: light; }
+body { font-family: var(--k-font-ui); font-size: var(--k-body-font-size); }
+button, input, select, textarea { font-family: inherit; }
+code, pre, .diff, .source-editor { font-family: var(--k-font-code); }
+::selection { background: color-mix(in srgb, var(--k-purple) 40%, transparent); }

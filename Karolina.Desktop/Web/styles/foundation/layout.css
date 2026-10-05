@@ -1,0 +1,12 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+main{display:flex;flex-direction:column;min-width:0;flex:1}
+.topbar{height:86px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:17px 30px;border-bottom:1px solid var(--line)}
+.top-actions{display:flex;gap:8px}
+.page{min-height:0;flex:1;overflow:hidden}
+.tool-spacer{flex:1}
+footer{height:35px;flex-shrink:0;border-top:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 20px;font-size:11px;color:var(--muted)}
+footer button{border:0;background:none;padding:5px 0;font-size:11px}
+.empty{text-align:center;padding:60px 25px;color:var(--muted);font-size:13px}
+.topbar>div:first-child{min-width:0;flex:1}
+.topbar h1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-actions{margin-left:14px}

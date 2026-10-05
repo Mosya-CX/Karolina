@@ -1,0 +1,19 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+.markdown{line-height:1.9;font-size:15px;padding:28px 50px 60px;overflow:auto;max-width:100%;flex:1;scrollbar-width:thin}
+.markdown h1{font-size:29px;margin:12px 0 28px;line-height:1.45}
+.markdown h2{font-size:21px;margin:35px 0 16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.markdown h3{font-size:17px;margin:25px 0 13px}
+.markdown h4{font-size:15px}
+.markdown p{margin:12px 0}
+.markdown ul,.markdown ol{padding-left:25px}
+.markdown li{padding:3px 0}
+.markdown blockquote{margin:16px 0;padding:7px 18px;border-left:3px solid var(--accent);color:var(--muted);background:var(--code)}
+.markdown code{font-family:Consolas,monospace;font-size:.88em;background:var(--code);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}
+.markdown pre{padding:17px 20px;border-radius:8px;background:var(--code);overflow:auto;line-height:1.65}
+.markdown pre code{padding:0;background:none}
+.markdown table{width:100%;border-collapse:collapse;font-size:13px;margin:18px 0}
+.markdown th,.markdown td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+.markdown th{background:var(--code)}
+.markdown a{color:var(--accent);text-underline-offset:3px}
+.markdown hr{border:0;border-top:1px solid var(--line);margin:25px 0}
+.markdown .math{font-family:Cambria,serif;background:var(--code);padding:16px;white-space:pre-wrap}

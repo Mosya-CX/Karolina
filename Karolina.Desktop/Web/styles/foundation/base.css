@@ -1,0 +1,10 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+*{box-sizing:border-box}
+body{margin:0;height:100vh;display:flex;background:var(--bg);color:var(--text);overflow:hidden}
+[hidden]{display:none!important}
+.nav{font-size:23px;width:43px;height:43px;padding:0;border:none;background:transparent;color:var(--muted)}
+.nav.active{background:var(--accent-soft);color:var(--accent)}
+.eyebrow{font-size:10px;color:var(--muted);letter-spacing:1.6px;font-weight:650}
+h1{margin:4px 0 0;font-size:20px;font-weight:600}
+.quiet{background:transparent;color:var(--muted)}
+.chat-page{display:flex;flex-direction:column}

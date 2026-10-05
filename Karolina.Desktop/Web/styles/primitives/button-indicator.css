@@ -1,0 +1,15 @@
+/* Tail-less downward triangle INSIDE the frame, horizontally centred. */
+.k-state-indicator {
+    position: absolute;
+    top: var(--k-button-indicator-y);
+    left: 50%;
+    width: calc(var(--k-button-indicator-size) * 1.65);
+    height: var(--k-button-indicator-size);
+    transform: translate(-50%, -2px);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: var(--k-blue);
+    opacity: 0;
+    transition: opacity var(--k-motion-fast), transform var(--k-motion-fast);
+}
+.k-button:hover:not(:disabled) .k-state-indicator { opacity: .9; transform: translate(-50%, 0); }
+.k-button.selected .k-state-indicator, .k-button.active .k-state-indicator { background: var(--k-pink); opacity: 1; transform: translate(-50%, 0); }

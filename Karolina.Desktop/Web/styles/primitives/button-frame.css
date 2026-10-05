@@ -1,0 +1,9 @@
+.k-button-frame { position: absolute; inset: 0; pointer-events: none; z-index: -1; background-size: 100% 100%; }
+.k-button-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.k-frame-line { fill: none; stroke: var(--k-button-border); stroke-width: 1; }
+.k-frame-leading { fill: none; stroke: var(--k-cyan); stroke-width: 1.3; opacity: .65; }
+.k-frame-trailing { fill: none; stroke: var(--k-pink); stroke-width: 1.3; opacity: .6; }
+.k-button:hover .k-frame-line { stroke: var(--k-blue); }
+.k-button.selected .k-frame-line, .k-button.active .k-frame-line { stroke: var(--k-pink); }
+.k-button.primary .k-frame-trailing { stroke: var(--k-purple); stroke-width: 2; }
+.k-custom-frame .k-button-frame svg { visibility: hidden; }

@@ -1,0 +1,66 @@
+/** Semantic resource names form the stable contract between business controls and replaceable artwork. */
+export const controlIcons = Object.freeze({
+    newChat: 'chat-add',
+    newDocument: 'add',
+    search: 'search',
+    referenceSearch: 'search',
+    theme: 'theme',
+    appearance: 'settings',
+    sidebarToggle: 'menu',
+    connectCodex: 'codex',
+    connectUnity: 'unity',
+    diagnosticsButton: 'info',
+    clearReferences: 'clear',
+    send: 'send',
+    stop: 'stop',
+    readMode: 'read',
+    sourceMode: 'edit',
+    saveDocument: 'save',
+    metadataButton: 'info',
+    historyButton: 'timeline',
+    startExternalReview: 'record',
+    refreshReviews: 'refresh',
+    saveReviewSummary: 'save',
+    explainReview: 'info',
+    resourcesButton: 'document',
+    tocButton: 'book',
+    approveFile: 'check',
+    rejectFile: 'return',
+    saveFileNotes: 'save',
+    approveTask: 'check',
+    returnTask: 'return',
+    resumeReview: 'execute',
+    registerTool: 'add',
+    refreshTools: 'refresh',
+    buildFinished: 'check',
+    toolStop: 'stop',
+    codexStatus: 'codex',
+    unityStatus: 'unity',
+    closeDrawer: 'close'
+});
+export const pageIcons = Object.freeze({ chat: 'chat', requirement: 'document', plan: 'plan', rule: 'book', review: 'approval', tools: 'tools', graph: 'compare', settings: 'settings' });
+export const modeIcons = Object.freeze({ 'discuss-requirement': 'chat', 'formulate-plan': 'plan', 'execute-task': 'execute' });
+export const textButtonGroups = Object.freeze({
+    readMode: 'document',
+    sourceMode: 'document',
+    saveDocument: 'document',
+    metadataButton: 'document',
+    historyButton: 'document',
+    approveFile: 'approval',
+    rejectFile: 'approval',
+    saveFileNotes: 'approval',
+    approveTask: 'approval',
+    returnTask: 'approval',
+    resumeReview: 'approval',
+    registerTool: 'tool',
+    refreshTools: 'tool',
+    toolRun: 'tool',
+    toolStop: 'tool',
+    buildFinished: 'tool',
+    connectCodex: 'connection',
+    connectUnity: 'connection',
+    diagnosticsButton: 'connection'
+});
+export function iconKey(button) {
+    return button.dataset.kIcon || pageIcons[button.dataset.page] || modeIcons[button.dataset.workflowMode] || controlIcons[button.id];
+}

@@ -1,0 +1,16 @@
+.directory .k-button, .review-file.k-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    background: transparent;
+    overflow-wrap: anywhere;
+}
+.directory .k-button .k-button-frame { opacity: 0; }
+.directory .k-button:hover .k-button-frame, .directory .k-button.active .k-button-frame { opacity: 1; }
+.directory .k-button > .title { display: block; font-size: 12px; line-height: 1.65; }
+.directory .k-button > .status { display: inline-block; margin-top: 4px; color: var(--k-muted); font-size: 10px; }
+.directory .k-button.active { background: var(--k-accent-soft); }
+.directory .k-button .k-state-indicator { top: 3px; --k-button-indicator-size: 4px; }
+.review-file.active { color: var(--k-cyan); }

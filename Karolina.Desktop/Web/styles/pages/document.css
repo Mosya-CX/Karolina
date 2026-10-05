@@ -1,0 +1,21 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+.document-page{display:flex;flex-direction:column}
+.document-toolbar{display:flex;align-items:center;gap:9px;padding:11px 25px;border-bottom:1px solid var(--line);font-size:12px}
+.document-toolbar button{font-size:12px}
+.reading-layout{display:flex;flex:1;overflow:hidden}
+.toc{width:160px;flex-shrink:0;overflow:auto;padding:25px 13px;font-size:11px;color:var(--muted);line-height:1.8;border-right:1px solid var(--line)}
+.toc a{color:inherit;text-decoration:none;display:block;padding:4px 0}
+.source-editor{flex:1;margin:20px;border:1px solid var(--line);line-height:1.8;font-family:Consolas,"Microsoft YaHei",monospace;resize:none}
+.change-summary{display:flex;align-items:center;gap:12px;padding:10px 25px;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}
+.change-summary input{flex:1}
+.meta-tabs{display:flex;gap:8px;margin-bottom:20px}
+.metadata-grid{display:grid;grid-template-columns:90px 1fr;gap:10px 20px}
+.metadata-grid dt{color:var(--muted)}
+.metadata-grid dd{margin:0;overflow-wrap:anywhere}
+.relation-card,.history-entry{border-bottom:1px solid var(--line);padding:12px 0}
+.relation-card small,.history-entry small{display:block;color:var(--muted);margin-top:6px}
+.relation-card a{color:var(--accent)}
+.metadata-refs{max-height:250px;overflow:auto}
+.metadata-refs label{display:flex!important;align-items:center;gap:8px}
+.metadata-refs input{width:auto!important}
+.change-summary textarea{width:100%;resize:vertical}

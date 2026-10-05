@@ -1,0 +1,19 @@
+/* Functional structure preserved from the original workbench. Theme atoms override appearance. */
+.rail{width:64px;flex-shrink:0;background:var(--side);border-right:1px solid var(--line);display:flex;align-items:center;flex-direction:column;padding:19px 0 14px;gap:12px}
+.brand{font-family:Georgia,serif;font-size:31px;color:var(--text);text-decoration:none;margin-bottom:17px}
+.brand-dot{color:var(--accent)}
+.rail-spacer{flex:1}
+.sidebar{width:280px;flex-shrink:0;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:24px 16px 12px;overflow:hidden}
+.workspace{padding:0 6px 23px}
+.workspace strong{display:block;font-size:16px;margin-top:8px}
+.workspace small{display:block;color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:8px}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sidebar-head h2{font-size:14px;margin:0}
+.sidebar-head button{font-size:12px;padding:6px 9px;background:transparent}
+.directory{overflow:auto;flex:1;scrollbar-width:thin}
+.directory .group{font-size:11px;color:var(--muted);padding:17px 9px 8px}
+.directory button{display:block;width:100%;text-align:left;white-space:normal;background:transparent;border:0;border-radius:7px;padding:10px 11px;margin:2px 0;line-height:1.6;font-size:13px}
+.directory button.active{background:var(--accent-soft)}
+.directory .title{display:block}
+.directory .status{font-size:10px;color:var(--muted);display:block;margin-top:2px}
+.sidebar-note{font-size:11px;color:var(--muted);line-height:1.8;border-top:1px solid var(--line);padding:12px 6px 0}

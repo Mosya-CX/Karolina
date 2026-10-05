@@ -1,0 +1,6 @@
+.k-icon { width: var(--k-icon-size); height: var(--k-icon-size); flex-shrink: 0; object-fit: contain; pointer-events: none; opacity: .92; }
+html[data-color-mode="light"] .k-icon { filter: brightness(.4) saturate(.8); }
+.k-brand-image { width: 40px; height: 44px; object-fit: contain; }
+.k-icon[data-k-key="codex"] { filter: invert(1); }
+html[data-color-mode="light"] .k-icon[data-k-key="codex"] { filter: none; }
+.k-icon-fallback { opacity: .4; }

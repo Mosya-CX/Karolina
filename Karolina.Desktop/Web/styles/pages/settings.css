@@ -1,0 +1,22 @@
+.settings-page{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.settings-tabs{display:flex;gap:7px;padding:14px 22px 0;border-bottom:1px solid var(--line);flex-shrink:0}
+.settings-tabs button{background:transparent;font-size:12px;border-bottom:2px solid transparent;border-radius:5px 5px 0 0}
+.settings-tabs button.selected{color:var(--accent);background:var(--accent-soft);border-bottom-color:var(--accent)}
+.settings-scroll{min-height:0;flex:1;overflow:auto;padding:22px}
+.settings-panel{max-width:1100px;margin:0 auto}
+.settings-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.settings-heading h2{font-size:19px;margin:7px 0}
+.settings-heading p,.settings-execution-policy p{font-size:12px;color:var(--muted);line-height:1.7;margin:5px 0}
+.settings-model-profiles{display:grid;gap:10px}
+.settings-model-row{display:grid;grid-template-columns:minmax(220px,1.2fr) minmax(170px,.8fr);gap:12px;padding:14px;border:1px solid var(--line);background:var(--panel);border-radius:10px}
+.settings-model-row label,.settings-execution-policy>label:not(.k-inline-check){display:flex;flex-direction:column;gap:7px;font-size:11px;color:var(--muted)}
+.settings-execution-policy{display:grid;grid-template-columns:minmax(240px,1fr) minmax(180px,.6fr);gap:14px;align-items:center;margin-top:16px;padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.settings-execution-policy p{grid-column:1/-1}
+.settings-actions{display:flex;align-items:center;gap:12px;margin-top:16px}
+.settings-actions [role=status]{font-size:11px;color:var(--muted)}
+.settings-panel[data-settings-panel="graph"]>p{max-width:760px;color:var(--muted);font-size:12px;line-height:1.8}
+.settings-panel[data-settings-panel="graph"]>a{display:inline-block;margin-top:8px;color:var(--accent)}
+#settingsAppearanceMount{min-height:100%;padding:3px}
+#settingsAppearanceMount .appearance-layout{max-height:none}
+#settingsAppearanceMount .appearance-package{margin-top:16px}
+@media(max-width:720px){.settings-scroll{padding:14px}.settings-model-row,.settings-execution-policy{grid-template-columns:1fr}.settings-tabs{padding-left:12px;padding-right:12px}.settings-execution-policy p{grid-column:auto}}

@@ -1,0 +1,8 @@
+.k-panel {
+    background: var(--k-panel-glass);
+    border: 1px solid var(--k-line);
+    border-radius: var(--k-radius);
+    backdrop-filter: blur(var(--k-panel-blur));
+}
+.k-panel-title { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+.k-panel-title::before { content: ''; width: 4px; height: 13px; background: var(--k-cyan); transform: skew(-15deg); }
