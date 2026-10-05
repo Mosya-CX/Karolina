@@ -198,6 +198,4 @@ export function registerSettings({ state: ctx, actions, ui, api }) {
         const target = $('settingsGraphStatus');
         if (target) target.textContent = status.indexing ? `${status.stage} · ${status.filesScanned} 个文件`: status.error ? `${status.stage} · ${status.error}`: status.indexed ? `${status.stage} · ${status.nodes} 个节点 / ${status.edges} 条关系`: status.stage;
     });
-    ctx.actions.applyModelDefaults = applyModelDefaults;
-    ctx.actions.openSettingsTab = selectSettingsTab;
 }
