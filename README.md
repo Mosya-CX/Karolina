@@ -1,14 +1,16 @@
 # Karolina
 
-Karolina 是一个独立的 Windows 工程工作台，使用 .NET 8、WinForms/WebView2、本机 Codex app-server 和可选的 Unity MCP。仓库包含应用源码、前端资源、测试、界面设计资料和 Karolina 自身的需求/计划文档。运行时连接的 Unity 工程由用户单独选择，不属于本仓库。
+Karolina 是一个独立的 Windows 工程工作台，使用 .NET 8、WinForms/WebView2、本机 Codex app-server 和可选的 Unity MCP。仓库包含应用源码、前端资源、测试和界面设计资料。Karolina 的产品需求、计划、规则和项目事实保存在当前连接 Unity 工程的 `Docs` 目录，不保存在源码仓库中。
 
 ## 启动
 
-安装 .NET 8 SDK、Windows WebView2 Runtime，并先在终端完成 `codex login`。首次启动会要求输入 Unity 工程根目录；之后可从记忆的工程启动，也可显式指定：
+安装 .NET 8 SDK、Windows WebView2 Runtime，并先在终端完成 `codex login`。双击仓库内的 `Start-Karolina.cmd` 可从记忆的工程启动；首次启动会要求输入 Unity 工程根目录。也可显式指定：
 
 ```powershell
 ./Start-Karolina.ps1 -ProjectPath 'C:/Path/To/UnityProject'
 ```
+
+当前 Windows 桌面上的 `Karolina.lnk` 快捷方式会直接连接 FrameSyncMoba 工程。首次运行会在源码仓库内构建 Release 版本，再打开桌面窗口；构建错误会留在命令窗口中显示。
 
 程序仅绑定本机随机回环端口，并使用单次会话令牌保护 API。工程级设置、任务审批、运行记录与图谱快照写在所选 Unity 工程的 `.karolina/state` 下。
 
@@ -30,7 +32,7 @@ Jev、自动生成/切换对话、ArchitectureGraph、多 Harness MCP 替代、�
 dotnet build Karolina.sln -c Release
 dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings
 dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --task-reviews
-dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- E:/Github/Karolina
+dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Unity工程根目录>
 ```
 
-`Docs/README.md` 是 Karolina 需求、计划与规则的目录。`THEMES.md` 说明主题包和界面组件扩展。`Design` 保留了本机美术源文件；其中 PSD/PNG 原稿由 `.gitignore` 排除，不会随 GitHub 仓库上传。程序实际使用的资源位于 `Karolina.Desktop/Web` 与 `Karolina.Desktop/Resources`。
+连接工程的 `Docs/README.md` 是产品需求、计划和规则的目录。`THEMES.md` 说明主题包和界面组件扩展；`AGENTS.md` 说明源码仓库工作约定。`Design` 保留本机美术源文件；其中 PSD/PNG 原稿由 `.gitignore` 排除，不会随 GitHub 仓库上传。程序实际使用的资源位于 `Karolina.Desktop/Web` 与 `Karolina.Desktop/Resources`。
