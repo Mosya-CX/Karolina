@@ -24,6 +24,7 @@ Jev、自动生成/切换对话、ArchitectureGraph、多 Harness MCP 替代、�
 
 ```powershell
 dotnet build Karolina.sln -c Release
+node --test Karolina.Tests/FrontendRegistrationChecks.test.mjs
 dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings
 dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --task-reviews
 dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Unity工程根目录>
