@@ -14,7 +14,7 @@
 ## 工程边界
 
 1. `Karolina.Core` 不依赖 WinForms、WebView 或 Unity；Desktop 组合 Core 服务，浏览器 UI 通过本机受令牌保护的 API 访问。
-2. Unity 工程通过启动参数选择。除用户明确要求的任务外，索引与连接检查保持只读；不手改 Unity YAML，不自动保存场景，不擅自运行正式构建。
+2. 正常启动直接运行 `artifacts/current/Karolina.Desktop.exe`；目标 Unity 工程从本机 `%LOCALAPPDATA%/Karolina/last-project.txt` 读取。除用户明确要求的任务外，索引与连接检查保持只读；不手改 Unity YAML，不自动保存场景，不擅自运行正式构建。
 3. 设置不保存 API 密钥或访问令牌。日志和图谱属于用户所选工程的 `.karolina/state`，不要提交到此仓库。
 4. 只为明确需求增加依赖；保留独立程序集边界和可替换的 Codex 会话接口。
 5. UI 和代码注释使用简体中文；路径、程序集与元数据文件名使用英文。
@@ -23,8 +23,8 @@
 
 ## 启动与测试
 
-- 双击 `Start-Karolina.cmd` 使用记忆的 Unity 工程；首次启动会要求输入工程根目录。也可运行 `./Start-Karolina.cmd -ProjectPath <Unity根目录>` 或 `./Start-Karolina.ps1 -ProjectPath <Unity根目录>`。
-- Windows 桌面快捷方式由用户工作站配置为连接当前 Unity 工程；产品文档始终读取该工程的 `Docs` 目录。
+- 直接双击 `artifacts/current/Karolina.Desktop.exe` 启动。Windows 桌面快捷方式应直接指向此 EXE，不通过命令解释器；目标工程由本机 `last-project.txt` 记忆。
+- `Start-Karolina.ps1` 仅用于开发构建或显式启动工程，不作为用户日常入口。产品文档始终读取连接工程的 `Docs` 目录。
 - 解决方案：`Karolina.sln`。
 - 定向测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings`、`--task-reviews`。
 - 完整隔离套件（需传入含 `Docs` 的 Unity 测试工程）：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Unity工程根目录>`。

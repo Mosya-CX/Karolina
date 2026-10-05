@@ -4,13 +4,7 @@ Karolina 是一个独立的 Windows 工程工作台，使用 .NET 8、WinForms/W
 
 ## 启动
 
-安装 .NET 8 SDK、Windows WebView2 Runtime，并先在终端完成 `codex login`。双击仓库内的 `Start-Karolina.cmd` 可从记忆的工程启动；首次启动会要求输入 Unity 工程根目录。也可显式指定：
-
-```powershell
-./Start-Karolina.ps1 -ProjectPath 'C:/Path/To/UnityProject'
-```
-
-当前 Windows 桌面上的 `Karolina.lnk` 快捷方式会直接连接 FrameSyncMoba 工程。首次运行会在源码仓库内构建 Release 版本，再打开桌面窗口；构建错误会留在命令窗口中显示。
+安装 .NET 8 Desktop Runtime、Windows WebView2 Runtime，并先在 Codex 中完成登录。构建 Release 后，直接双击仓库内的 `artifacts/current/Karolina.Desktop.exe` 即可启动；本机桌面 `Karolina.lnk` 也直接指向这个 EXE。程序从 `%LOCALAPPDATA%/Karolina/last-project.txt` 读取目标 Unity 工程，当前值为 FrameSyncMoba 工程路径。
 
 程序仅绑定本机随机回环端口，并使用单次会话令牌保护 API。工程级设置、任务审批、运行记录与图谱快照写在所选 Unity 工程的 `.karolina/state` 下。
 
