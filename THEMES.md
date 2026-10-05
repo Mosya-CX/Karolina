@@ -126,4 +126,4 @@ CSS 动效在独立 `motion.css`，主题能更换时长、缓动和整个文件
 
 ## 本轮证据
 
-机器与原生输入证据见 [PLAN-KAR-007](Docs/plans/karolina/PLAN-KAR-007_visual-system-customization.md)。视觉是否达到定稿感觉由实际使用确认；DOM 检查、编译和 Shader 成功不代替人工视觉验收。
+机器与原生输入证据见当前连接工程 `Docs/plans/karolina/PLAN-KAR-007_visual-system-customization.md`。视觉是否达到定稿感觉由实际使用确认；DOM 检查、编译和 Shader 成功不代替人工视觉验收。

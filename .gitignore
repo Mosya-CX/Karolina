@@ -2,6 +2,7 @@
 **/obj/
 /artifacts/
 /.karolina/
+/Docs/
 /Design/**/*.psd
 /Design/**/*.png
 .vs/

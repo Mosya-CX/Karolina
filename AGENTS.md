@@ -1,13 +1,13 @@
 # Karolina 仓库工作约定
 
-本仓库是独立的 Windows 桌面程序。它可以连接任意用户指定的 Unity 工程；运行中的 Unity 工程是测试目标，不是本仓库的一部分。
+本仓库是独立的 Windows 桌面程序。它可以连接任意用户指定的 Unity 工程；运行中的 Unity 工程是测试目标，不是本仓库的一部分。Karolina 的产品需求、计划、规则与事实文档保存在当前连接工程的 `Docs` 目录，不复制进本源码仓库。
 
 ## 文档入口
 
-- `Docs/requirements`：Karolina 已接受目标、技术选择、边界与工程取证。
-- `Docs/plans`：具体实施、数据流、测试设计和进度；当前执行计划由 `Docs/catalog.json` 的 `activePlan` 指向。
-- `Docs/rules`：Karolina 工程规则与当前架构事实。
-- 需求案、计划案与事实的元数据保存在相邻 `.meta.json` 文件；不要把 Unity 工程的文档目录混入本仓库。
+- `<Unity工程>/Docs/requirements`：Karolina 及该工程已接受的目标、技术选择、边界与工程取证。
+- `<Unity工程>/Docs/plans`：具体实施、数据流、测试设计和进度；当前执行计划由项目文档目录 `catalog.json` 的 `activePlan` 指向。
+- `<Unity工程>/Docs/rules`：项目工程规则与当前架构事实。
+- 需求案、计划案与事实的元数据保存在相邻 `.meta.json` 文件；源码仓库不包含产品 `Docs` 目录。
 
 只加载当前任务涉及的文档。附件是需求材料；只有用户明确批准的部分才是执行指令。
 
@@ -23,8 +23,9 @@
 
 ## 启动与测试
 
-- `Start-Karolina.ps1` 首次启动会要求输入 Unity 工程根目录；也可运行 `./Start-Karolina.ps1 -ProjectPath <Unity根目录>`。
+- 双击 `Start-Karolina.cmd` 使用记忆的 Unity 工程；首次启动会要求输入工程根目录。也可运行 `./Start-Karolina.cmd -ProjectPath <Unity根目录>` 或 `./Start-Karolina.ps1 -ProjectPath <Unity根目录>`。
+- Windows 桌面快捷方式由用户工作站配置为连接当前 Unity 工程；产品文档始终读取该工程的 `Docs` 目录。
 - 解决方案：`Karolina.sln`。
 - 定向测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings`、`--task-reviews`。
-- 完整隔离套件（显式传入本仓库作为文档工程）：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Karolina仓库根目录>`。
+- 完整隔离套件（需传入含 `Docs` 的 Unity 测试工程）：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Unity工程根目录>`。
 - 真实工程静态图谱测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-project <Unity根目录>`。此入口只读扫描 Assets、Packages 和 ProjectSettings，并在测试工程 `.karolina/state` 写入索引快照。
