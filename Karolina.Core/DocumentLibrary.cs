@@ -45,7 +45,7 @@ public sealed partial class DocumentLibrary : IDisposable
                 if (!System.Text.RegularExpressions.Regex.IsMatch(entry.Id, "^[A-Za-z0-9][A-Za-z0-9_-]{0,119}$") || string.IsNullOrWhiteSpace(entry.Title) || entry.Type != "rule" && string.IsNullOrWhiteSpace(entry.Status)) throw new InvalidDataException("文档缺少有效编号、标题或状态：" + meta);
                 if (entry.Type == "requirement" && entry.Status is not ("激活" or "废弃") || entry.Type == "plan" && entry.Status is not ("准备" or "执行" or "测试" or "校正" or "验收" or "关闭")) throw new InvalidDataException("文档状态不属于此类别的生命周期：" + meta);
                 if(entry.Type=="rule"&&(entry.Section is not ("facts" or "execution" or "index" or "templates")||!entry.Path.StartsWith("Docs/rules/"+entry.Section+"/",StringComparison.Ordinal)))throw new InvalidDataException("规则正文与板块不一致："+meta);
-                result.Add(entry with { Tags = e.TryGetProperty("tags", out var tags) ? NormalizeTags(JsonSerializer.Deserialize<string[]>(tags, Json) ?? []) : [], ResourceRefs = e.TryGetProperty("resourceRefs", out var resources) ? JsonSerializer.Deserialize<ResourceReference[]>(resources, Json) : [] });
+                result.Add(entry with { Tags = e.TryGetProperty("tags", out var tags) ? NormalizeTags(JsonSerializer.Deserialize<string[]>(tags, Json) ?? []) : [], ResourceRefs = ReadReferences(e) });
             }
         if (result.Select(e => e.Id).Distinct(StringComparer.Ordinal).Count() != result.Count) throw new InvalidDataException("文档编号重复");
         loadedVersion = observed;

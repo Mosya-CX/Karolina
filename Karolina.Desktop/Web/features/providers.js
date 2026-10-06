@@ -4,12 +4,12 @@ export function registerProviders({ state: ctx, actions, ui, api }) {
     const { $, esc, toast, action, markdown, drawer } = ui;
     Object.assign(actions, { updateControls, connectProvider, autoConnect, efforts, refreshState, poll, unityDrawer });
     function updateControls() {
-        $ ('send').disabled = !ctx.snapshot.codex?.connected || !ctx.snapshot.models?.length || !($ ('model').value) || ctx.snapshot.busy;
+        $ ('send').disabled = !ctx.snapshot.codex?.connected || !ctx.snapshot.models?.length || !($ ('model').value) || ctx.snapshot.busy || !!ctx.submittingChat;
         $ ('send').title = ctx.snapshot.models?.length && !$ ('model').value ? '无法可靠识别低成本模型，请手动选择后发送。' : '';
         $ ('stop').hidden = !ctx.snapshot.busy || !!ctx.snapshot.toolBusy;
-        ['model', 'effort', 'access', 'newChat'].forEach(id => $ (id).disabled = !!ctx.snapshot.busy || (['model', 'effort'].includes(id) && !ctx.snapshot.models?.length));
+        ['model', 'effort', 'access', 'newChat'].forEach(id => $ (id).disabled = !!ctx.snapshot.busy || !!ctx.submittingChat || (['model', 'effort'].includes(id) && !ctx.snapshot.models?.length));
         actions.updateReviewControls();
-        document.querySelectorAll('[data-workflow-mode]').forEach(b => b.disabled = !!ctx.snapshot.busy);
+        document.querySelectorAll('[data-workflow-mode]').forEach(b => b.disabled = !!ctx.snapshot.busy || !!ctx.submittingChat);
         actions.updateToolControls();
         $ ('toolStop').disabled = !ctx.toolRunning;
         $ ('registerTool').disabled = !!ctx.snapshot.busy || ctx.toolRunning;
@@ -61,6 +61,7 @@ export function registerProviders({ state: ctx, actions, ui, api }) {
     }
     async function refreshState() {
         ctx.snapshot = await api('state');
+        actions.observeGraphStatus?.(ctx.snapshot.graph);
         ui.setText('project', ctx.snapshot.project);
         ui.setText('projectPath', ctx.snapshot.root);
         $ ('projectPath').title = ctx.snapshot.root;
@@ -70,6 +71,7 @@ export function registerProviders({ state: ctx, actions, ui, api }) {
         $ ('accountStatus').textContent = ctx.snapshot.codex.connected ? (acc ? `${acc.type==='chatgpt'?'ChatGPT':'API'} · ${acc.planType||'已登录'}`: '未登录'): (ctx.snapshot.codex.error ? '连接已断开': '');
         $ ('taskStatus').textContent = ctx.snapshot.toolBusy ? '拓展工具正在执行…': ctx.snapshot.busy ? (ctx.snapshot.currentRun?.progressMessage || (ctx.snapshot.activeTurn ? 'Codex 正在执行…': '等待轮次回执…')): '就绪';
         $ ('taskStatus').title = ctx.snapshot.currentRun ? `${ctx.snapshot.currentRun.progressStage || ''} · ${ctx.snapshot.currentRun.progressUpdated || ''}`: '当前没有活动任务';
+        actions.syncChatProgress?.();
         $ ('codexStatus').title = ctx.connectionErrors.codex || ctx.snapshot.codex.error || '';
         $ ('unityStatus').title = ctx.connectionErrors.unity || ctx.snapshot.unity.error || '';
         ui.setText('connectCodex', ctx.snapshot.codex.connected ? 'Codex · 刷新模型与账号': 'Codex · 连接');

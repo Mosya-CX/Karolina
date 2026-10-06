@@ -18,6 +18,7 @@ internal static partial class Program
         if (args.Contains("--appearance")) return await AppearanceChecks();
         if (args.Contains("--panel-layout")) return await PanelLayoutChecks();
         if (args.Contains("--graph-settings")) return await GraphSettingsChecks();
+        if (args.Contains("--chat-feedback")) return await ChatFeedbackChecks(args);
         if (args.Length == 2 && args[0] == "--graph-project") return await GraphProjectCheck(args[1]);
         if (Environment.GetEnvironmentVariable("KAROLINA_APPSERVER_FIXTURE") == "1") { await AppServerFixture(); return 0; }
         if (Environment.GetEnvironmentVariable("KAROLINA_FIXTURE_MODE") is { } fixtureMode)
@@ -177,7 +178,7 @@ internal static partial class Program
     }
     static async Task AppServerFixture()
     {
-        int threadSequence=0,turnSequence=0,responded=0; string currentThread="", currentTurn="";
+        int threadSequence=0,turnSequence=0,responded=0; string currentThread="", currentTurn="";var feedbackTurns=new List<object>();
         void Output(object value) { Console.WriteLine(JsonSerializer.Serialize(value)); Console.Out.Flush(); }
         void Completed(string thread,string turn) => Output(new { method="turn/completed", @params=new { threadId=thread,turn=new { id=turn,status="completed",error=(object?)null } } });
         while(await Console.In.ReadLineAsync() is {} line)
@@ -192,12 +193,29 @@ internal static partial class Program
                 case "model/list":result=new {data=new[]{new { id="fixture",model="fixture",displayName="测试模型",hidden=false,isDefault=true,defaultReasoningEffort="low",supportedReasoningEfforts=new[]{new{reasoningEffort="low",description="测试"}}}},nextCursor=(string?)null};break;
                 case "thread/start":currentThread="fixture-"+Environment.ProcessId+"-"+ ++threadSequence;result=new {thread=new {id=currentThread}};break;
                 case "thread/resume":currentThread=p.GetProperty("threadId").GetString()!;result=new {thread=new {id=currentThread}};break;
-                case "thread/read":result=new {thread=new {id=currentThread,turns=Array.Empty<object>()}};break;
+                case "thread/read":lock(feedbackTurns)result=new {thread=new {id=currentThread,turns=feedbackTurns.ToArray()}};break;
                 case "turn/start":
                     if(Environment.GetEnvironmentVariable("KAROLINA_HANG_TURN_START")=="1") continue;
                     currentTurn="turn-"+ ++turnSequence;result=new {turn=new{id=currentTurn}};
                     if(turnSequence>1)Completed(currentThread,"turn-"+(turnSequence-1));
                     Output(new {method="turn/started",@params=new {threadId=currentThread,turn=new{id=currentTurn}}});
+                    if(p.GetProperty("input")[0].GetProperty("text").GetString()!.Contains("CHAT_FEEDBACK"))
+                    {
+                        string feedbackThread=currentThread,feedbackTurn=currentTurn,feedbackPrompt=p.GetProperty("input")[0].GetProperty("text").GetString()!;
+                        bool correctContext=feedbackPrompt.Contains("工程图谱、Agent 执行闭环与统一设置页")&&feedbackPrompt.Contains("github.com/Mosya-CX/Karolina")&&p.TryGetProperty("summary",out var requestedSummary)&&requestedSummary.GetString()=="auto";
+                        _=Task.Run(async()=>{
+                            await Task.Delay(250);if(!feedbackPrompt.Contains("CHAT_FEEDBACK_HISTORY_ONLY"))Output(new{method="item/reasoning/summaryTextDelta",@params=new{threadId=feedbackThread,turnId=feedbackTurn,itemId="reason-fixture",summaryIndex=0,delta="我会核对执行进度的阶段、失败提示和公开摘要；资料来自所选计划。"}});
+                            Output(new{method="item/reasoning/textDelta",@params=new{threadId=feedbackThread,turnId=feedbackTurn,itemId="reason-fixture",contentIndex=0,delta="PRIVATE_REASONING_MARKER"}});
+                            Output(new{method="turn/plan/updated",@params=new{threadId=feedbackThread,turnId=feedbackTurn,explanation="协议夹具",plan=new[]{new{step="核对所选计划的反馈要求",status="in_progress"},new{step="确认失败状态不会误报通过",status="pending"}}}});
+                            await Task.Delay(450);Output(new{method="item/started",@params=new{threadId=feedbackThread,turnId=feedbackTurn,item=new{id="command-fixture",type="commandExecution",command="rg --files SECRET_CLI_MARKER",status="inProgress"}}});
+                            await Task.Delay(1800);Output(new{method="item/completed",@params=new{threadId=feedbackThread,turnId=feedbackTurn,item=new{id="command-fixture",type="commandExecution",command="rg --files SECRET_CLI_MARKER",aggregatedOutput="SECRET_RAW_OUTPUT",status="failed",exitCode=1}}});
+                            await Task.Delay(1800);var answer=new{id="feedback-answer",type="agentMessage",text=correctContext?"已收到所选计划，正在演示执行进度与状态反馈；该操作失败，没有宣称功能验收通过。":"上下文或摘要配置不正确"};
+                            Output(new{method="item/completed",@params=new{threadId=feedbackThread,turnId=feedbackTurn,item=answer}});
+                            lock(feedbackTurns)feedbackTurns.Add(new{id=feedbackTurn,status="completed",items=new object[]{new{id="reason-fixture",type="reasoning",summary=new[]{"我会核对执行进度的阶段、失败提示和公开摘要；资料来自所选计划。"},content=new[]{"PRIVATE_REASONING_MARKER"}},answer}});
+                            Output(new{method="item/completed",@params=new{threadId=feedbackThread,turnId=feedbackTurn,item=new{id="reason-empty",type="reasoning",summary=Array.Empty<string>(),content=new[]{"PRIVATE_REASONING_MARKER"}}}});
+                            await Task.Delay(300);Completed(feedbackThread,feedbackTurn);
+                        });
+                    }
                     if(p.GetProperty("input")[0].GetProperty("text").GetString()!.Contains("POLISH_WRITE"))
                     {
                         string path=Path.GetFullPath("Assets/agent-fixture.cs"); File.WriteAllText(path,"class Fixture { int HP; }\n");

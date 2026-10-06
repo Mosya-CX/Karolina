@@ -85,7 +85,7 @@ export function registerDocuments({ state: ctx, actions, ui, api }) {
             const documentTags=document.createElement('div');documentTags.className='reference-document-tags';
             for(const value of d.tags || []) {const chip=document.createElement('button');chip.className='reference-tag';chip.textContent=value;chip.onclick=()=>{ctx.referenceTag=ctx.referenceTag===value?'':value;renderReferences();};documentTags.append(chip);}card.append(documentTags);
             if (d.type === 'plan' && checkbox.checked) {
-                const refs = d.resourceRefs || [], paths = refs.map(r=>r.path);
+                const refs = d.resourceRefs || [], paths = refs.map(r=>r.selectionKey || r.path);
                 if (!ctx.selectedResources.has(d.id)) ctx.selectedResources.set(d.id,new Set(paths));
                 const selected = ctx.selectedResources.get(d.id), details = document.createElement('details');
                 details.className = 'reference-resources';
@@ -95,8 +95,8 @@ export function registerDocuments({ state: ctx, actions, ui, api }) {
                     const allLabel = document.createElement('label'), all = document.createElement('input'); all.type='checkbox'; all.checked=paths.every(p=>selected.has(p)); all.indeterminate=!all.checked && paths.some(p=>selected.has(p));
                     all.onchange=()=>{ ctx.selectedResources.set(d.id,new Set(all.checked?paths:[])); renderReferences(); }; allLabel.append(all,document.createTextNode('全部关联资源')); details.append(allLabel);
                     for (const r of refs) {
-                        const row=document.createElement('label'), check=document.createElement('input'), caption=document.createElement('span'); check.type='checkbox'; check.checked=selected.has(r.path);
-                        caption.textContent=`${resourceKind(r.path)} · ${r.path}`; caption.title=r.evidence || ''; check.onchange=()=>{check.checked?selected.add(r.path):selected.delete(r.path);summary.textContent=`关联真实资源 · ${paths.filter(p=>selected.has(p)).length}/${paths.length}`;all.checked=paths.every(p=>selected.has(p));all.indeterminate=!all.checked && paths.some(p=>selected.has(p));}; row.append(check,caption);details.append(row);
+                        const key=r.selectionKey || r.path,row=document.createElement('label'), check=document.createElement('input'), caption=document.createElement('span'); check.type='checkbox'; check.checked=selected.has(key);
+                        caption.textContent=`${r.repository?'外部仓库 · ':''}${resourceKind(r.path)} · ${r.path}`; caption.title=[r.repository,r.evidence].filter(Boolean).join('\n'); check.onchange=()=>{check.checked?selected.add(key):selected.delete(key);summary.textContent=`关联真实资源 · ${paths.filter(p=>selected.has(p)).length}/${paths.length}`;all.checked=paths.every(p=>selected.has(p));all.indeterminate=!all.checked && paths.some(p=>selected.has(p));}; row.append(check,caption);details.append(row);
                     }
                 } else { const hint=document.createElement('small');hint.textContent='此计划尚未关联可核对的真实资源。';details.append(hint); }
                 card.append(details);
@@ -111,7 +111,7 @@ export function registerDocuments({ state: ctx, actions, ui, api }) {
     async function showDocumentResources() {
         const doc=ctx.currentDoc?.document;if(doc?.type!=='plan')return;
         const refs=await api('document/'+encodeURIComponent(doc.id)+'/resources');
-        drawer('关联代码与资源',`<p>${esc(doc.title)} · ${refs.length}个关联文件。关联是定位与取证，不表示人工验收已通过。</p>${refs.map(r=>`<section class="document-resource"><strong>${resourceKind(r.path)} · ${esc(r.path.split('/').at(-1))}</strong><code>${esc(r.path)}</code><p>${esc(r.evidence)}</p><small>${r.exists?'当前文件存在':'历史文件已删除或当前缺失'}</small>${r.exists?`<button data-resource-reveal="${esc(r.path)}">在文件管理器定位</button>`:''}</section>`).join('') || '<p>尚未关联真实文件。可在文档信息与关联中登记，不能按目录猜测。</p>'}`);
+        drawer('关联代码与资源',`<p>${esc(doc.title)} · ${refs.length}个关联文件。关联是定位与取证，不表示人工验收已通过。</p>${refs.map(r=>`<section class="document-resource"><strong>${resourceKind(r.path)} · ${esc(r.path.split('/').at(-1))}</strong><code>${esc(r.path)}</code>${r.repository?`<p>外部仓库：${esc(r.repository)}</p>`:''}<p>${esc(r.evidence)}</p><small>${r.repository?'外部引用，未检查本地文件':r.exists?'当前文件存在':'历史文件已删除或当前缺失'}</small>${r.exists?`<button data-resource-reveal="${esc(r.path)}">在文件管理器定位</button>`:''}</section>`).join('') || '<p>尚未关联真实文件。可在文档信息与关联中登记，不能按目录猜测。</p>'}`);
         $('drawerBody').querySelectorAll('[data-resource-reveal]').forEach(b=>b.onclick=()=>api('resource/reveal',{path:b.dataset.resourceReveal}).catch(e=>toast(e.message)));
     }
     $('resourcesButton').onclick=()=>showDocumentResources().catch(e=>toast(e.message));

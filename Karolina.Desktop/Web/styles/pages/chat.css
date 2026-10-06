@@ -35,3 +35,11 @@
 .workflow-modes .selected{background:var(--accent-soft);color:var(--accent)}
 .workflow-hint{display:block;padding:0 16px 10px;color:var(--muted);font-size:11px}
 .model-profile-status{max-width:300px;color:var(--muted);font-size:10px;line-height:1.4}
+.chat-progress{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0;font-size:12px;line-height:1.7}
+.chat-progress header{display:flex;align-items:center;gap:12px}
+.chat-progress-state{color:var(--accent);background:var(--accent-soft);border-radius:20px;padding:2px 9px;font-size:11px}
+.chat-progress-detail{margin:9px 0 4px}.chat-progress-clock,.chat-progress-empty{color:var(--muted)}
+.chat-progress-thinking{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.chat-progress-thinking p{white-space:pre-wrap;overflow-wrap:anywhere;margin:5px 0}
+.chat-progress-plan{padding-left:20px}.chat-progress-plan [data-status="in_progress"]{color:var(--accent)}
+.chat-progress[data-state="failed"] .chat-progress-state,.chat-progress[data-state="disconnected"] .chat-progress-state{color:var(--danger,var(--accent))}
