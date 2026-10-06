@@ -80,10 +80,14 @@ public sealed class RunRecord
     public string ProgressStage { get; set; } = "等待启动";
     public string ProgressMessage { get; set; } = "正在准备任务";
     public DateTimeOffset? ProgressUpdated { get; set; }
+    public string? ReasoningItemId { get; set; }
+    public string? ReasoningSummary { get; set; }
+    public AgentPlanStep[] ActivityPlan { get; set; } = [];
     public List<RunProgressEvent> Progress { get; set; } = [];
     public Change[] Baseline { get; set; } = [];
     public Change[] After { get; set; } = [];
 }
+public sealed record AgentPlanStep(string Step,string Status);
 public sealed class EvidenceStore
 {
     public string Root { get; }

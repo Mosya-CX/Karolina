@@ -54,7 +54,7 @@ public sealed partial class Workbench
             if (!models.Any(m => m.GetProperty("model").GetString() == input.Model && m.GetProperty("supportedReasoningEfforts").EnumerateArray().Any(e => e.GetProperty("reasoningEffort").GetString() == input.Effort))) throw new ArgumentException("请选择服务支持的模型和思考档位");
             if (input.Access is not ("read-only" or "workspace-write" or "danger-full-access")) throw new ArgumentException("无效访问权限");
             if (BuildPending) throw new InvalidOperationException("Unity构建尚未确认结束，暂停Harness轮次以避免重复Unity调用；请先登记构建结束");
-            string context = WorkflowModes.Context(input.Mode)+"\n\n"+library.ReferenceContext(input.Documents ?? [])+library.ReferenceResources(input.Documents ?? [], input.ResourceSelections)+projectGraph.ReferenceContext(input.GraphNodeIds ?? []);
+            string context = $"当前关联工程根目录：{root}。文档只保存在此工程Docs中。参考路径以该工程根目录为基准，外部资源以所注明仓库为基准；资料不授予额外写入权限。\n"+WorkflowModes.Context(input.Mode)+"\n\n"+library.ReferenceContext(input.Documents ?? [])+library.ReferenceResources(input.Documents ?? [], input.ResourceSelections)+projectGraph.ReferenceContext(input.GraphNodeIds ?? [])+ProjectGraphTools.AgentInstructions+AgentActivity.FeedbackInstructions;
             WorkbenchSettings? executionSettings = input.Mode == "execute-task" && input.Access != "read-only" ? settingsStore.Read() : null;
             (string Id,Dictionary<string,string> Fingerprints)? explanationTarget=null;
             if(input.Mode=="explain-review")
@@ -113,7 +113,7 @@ public sealed partial class Workbench
             activeTurn = null;
             string workDirectory=WorkflowModes.WorkingDirectory(input.Mode,root);
             object policy = input.Access switch { "workspace-write" => new { type = "workspaceWrite", writableRoots = new[] { workDirectory }, networkAccess = false }, "danger-full-access" => (object)new { type = "dangerFullAccess" }, _ => new { type = "readOnly", networkAccess = false } };
-            var thread = await codex.Request(input.ThreadId == null ? "thread/start" : "thread/resume", input.ThreadId == null ? (object)new { cwd = workDirectory, model = input.Model, sandbox = input.Access, approvalPolicy = "on-request" } : new { threadId = input.ThreadId, cwd = workDirectory, model = input.Model, sandbox = input.Access, approvalPolicy = "on-request" }, app!.Lifetime.ApplicationStopping);
+            var thread = await codex.Request(input.ThreadId == null ? "thread/start" : "thread/resume", input.ThreadId == null ? (object)new { cwd = workDirectory, model = input.Model, sandbox = input.Access, approvalPolicy = "on-request", config = GraphSessionConfig() } : new { threadId = input.ThreadId, cwd = workDirectory, model = input.Model, sandbox = input.Access, approvalPolicy = "on-request", config = GraphSessionConfig() }, app!.Lifetime.ApplicationStopping);
             activeThread = thread.GetProperty("thread").GetProperty("id").GetString()!; lock (runProgressGate) run!.ThreadId = activeThread;
             if(activeReview != null) { var task=reviews.Get(activeReview); if(task.State=="待再执行")reviews.Resume(task.Id,task.Revision); reviews.RecordRun(task.Id,run.Id,activeThread,"running"); }
             lock (chats)
@@ -127,7 +127,7 @@ public sealed partial class Workbench
             SaveRun(run);
             UpdateExplanationProgress("等待回执", "指令已准备，正在等待Codex轮次回执");
             turnSubmitted = true;
-            var response = await codex.Request("turn/start", new { threadId = activeThread, model = input.Model, effort = input.Effort, approvalPolicy = "on-request", sandboxPolicy = policy, input = new[] { new { type = "text", text = context + "\n\n用户指令：\n" + input.Text, text_elements = Array.Empty<object>() } } }, app!.Lifetime.ApplicationStopping);
+            var response = await codex.Request("turn/start", new { threadId = activeThread, model = input.Model, effort = input.Effort, summary = "auto", approvalPolicy = "on-request", sandboxPolicy = policy, input = new[] { new { type = "text", text = context + "\n\n用户指令：\n" + input.Text, text_elements = Array.Empty<object>() } } }, app!.Lifetime.ApplicationStopping);
             activeTurn = response.GetProperty("turn").GetProperty("id").GetString();
             UpdateExplanationProgress("分析", "Codex已接收指令，正在分析冻结文件资料");
             return Results.Json(new { threadId = activeThread, turnId = activeTurn, runId = run.Id });

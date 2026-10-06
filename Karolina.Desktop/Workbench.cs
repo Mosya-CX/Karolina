@@ -80,7 +80,7 @@ public sealed partial class Workbench : IAsyncDisposable
     {
         var e = value is JsonElement json ? json.Clone() : JsonSerializer.SerializeToElement(value, DocumentLibrary.Json);
         lock (events) { events.Enqueue((++cursor, e)); while (events.Count > 4000) events.TryDequeue(out _); }
-        lock (chats) { try { journal?.WriteLine(e.GetRawText()); } catch (IOException failure) { lock (runProgressGate) if (run != null) run.Error = "运行日志写入失败：" + failure.Message; } }
+        lock (chats) { try { journal?.WriteLine(JsonSerializer.Serialize(e)); } catch (IOException failure) { lock (runProgressGate) if (run != null) run.Error = "运行日志写入失败：" + failure.Message; } }
     }
     private void Receive(JsonElement notification)
     {
@@ -98,6 +98,7 @@ public sealed partial class Workbench : IAsyncDisposable
     private void RecordRunProgress(JsonElement notification)
     {
         string? saveError = null;
+        object? activity = null;
         lock (runProgressGate)
         {
             if (run == null || !notification.TryGetProperty("method", out var methodValue)) return;
@@ -107,7 +108,7 @@ public sealed partial class Workbench : IAsyncDisposable
             if (method == "turn/started")
             {
                 if (activeThread == null || !parameters.TryGetProperty("threadId", out var startedThread) || startedThread.GetString() != activeThread) return;
-                stage = "Agent 执行"; detail = "Codex 已开始执行本轮任务"; source = method;
+                stage = "理解目标"; detail = "Agent 已接收指令，正在理解本轮目标和参考资料"; source = method;
             }
             else if (method is "turn/completed" or "karolina/disconnected")
             {
@@ -115,6 +116,23 @@ public sealed partial class Workbench : IAsyncDisposable
                     (!parameters.TryGetProperty("threadId", out var completedThread) || completedThread.GetString() != activeThread ||
                      activeTurn != null && (!parameters.TryGetProperty("turn", out var completedTurn) || !completedTurn.TryGetProperty("id", out var completedTurnId) || completedTurnId.GetString() != activeTurn))) return;
                 stage = method == "turn/completed" ? "整理任务结果" : "连接中断"; detail = method == "turn/completed" ? "Codex 轮次已结束，正在保存任务记录" : "Codex 连接中断"; source = method; outcome = method == "turn/completed" ? "终态" : "失败";
+            }
+            else if (method is "item/reasoning/summaryTextDelta" or "turn/plan/updated")
+            {
+                if(activeThread==null || activeTurn==null || !parameters.TryGetProperty("threadId",out var owner) || owner.GetString()!=activeThread || !parameters.TryGetProperty("turnId",out var turn) || turn.GetString()!=activeTurn)return;
+                if(method=="turn/plan/updated")
+                {
+                    run.ActivityPlan=parameters.GetProperty("plan").EnumerateArray().Take(30).Select(s=>new AgentPlanStep(s.GetProperty("step").GetString()??"",s.GetProperty("status").GetString()??"pending")).ToArray();
+                    stage="安排步骤";detail="Agent 已更新本轮工作步骤";source=method;
+                }
+                else
+                {
+                    string? id=parameters.GetProperty("itemId").GetString();
+                    if(run.ReasoningItemId!=id){run.ReasoningItemId=id;run.ReasoningSummary="";}
+                    string delta=parameters.GetProperty("delta").GetString()??"";
+                    run.ReasoningSummary=(run.ReasoningSummary+delta);if(run.ReasoningSummary.Length>20000)run.ReasoningSummary=run.ReasoningSummary[..20000]+"\n（摘要过长，完整回执保存在运行记录）";
+                    stage="思考摘要";detail="Agent 正在梳理目标、依据与下一步";source=method;
+                }
             }
             else if ((method is "item/started" or "item/completed") && parameters.TryGetProperty("item", out var item) && item.TryGetProperty("type", out var typeValue))
             {
@@ -128,35 +146,40 @@ public sealed partial class Workbench : IAsyncDisposable
                 if (type == "fileChange") { stage = "文件变更"; detail = completed ? "Codex 文件修改回执：" + status : "Codex 正在修改文件"; source = "fileChange"; }
                 else if (type == "commandExecution")
                 {
-                    stage = "运行命令"; source = "commandExecution";
-                    if (!completed) detail = "正在运行命令：" + command;
+                    var purpose=AgentActivity.CommandPurpose(command);stage=purpose.Stage; source = "commandExecution";
+                    if (!completed) detail = purpose.Message;
                     else if (TryReadExitCode(item, out int exitCode))
                     {
-                        detail = $"命令结束 · 退出码 {exitCode}" + (command.Length == 0 ? "" : " · " + command);
-                        outcome = exitCode == 0 ? "命令成功" : "命令失败";
+                        detail = exitCode==0?"此项操作已完成；功能是否通过仍需对应验证":"此项操作未完成，Agent 需检查失败原因";
+                        outcome = exitCode == 0 ? "操作完成" : "操作失败";
                     }
-                    else { detail = "命令已结束，但 Codex 事件未提供退出码；结果尚未确认" + (command.Length == 0 ? "" : " · " + command); outcome = "未确认"; }
+                    else { detail = "操作已结束，回执未确认执行结果"; outcome = "未确认"; }
                 }
                 else if (type == "mcpToolCall")
                 {
                     bool verification = tool.Contains("tests", StringComparison.OrdinalIgnoreCase) || tool.Contains("compile", StringComparison.OrdinalIgnoreCase) || tool.Contains("console", StringComparison.OrdinalIgnoreCase);
                     stage = verification ? "机器验证" : "调用工具";
-                    detail = (completed ? "工具调用已结束：" + status : "正在调用工具") + (tool.Length == 0 ? "" : " · " + tool);
+                    detail = completed ? "工具操作已结束，正在核对结果" : verification?"正在读取相关验证回执":"正在通过工具查询项目资料或处理操作";
                     source = tool.Length == 0 ? "mcpToolCall" : tool;
                     if (completed && tool.Equals("tests-run", StringComparison.OrdinalIgnoreCase))
                     {
-                        if (item.TryGetProperty("result", out var result))
-                        {
-                            try { detail += " · " + McpClient.TestVerdict(result); outcome = "测试已验证通过"; }
-                            catch (Exception failure) when (failure is InvalidDataException or JsonException or InvalidOperationException or KeyNotFoundException)
-                            { detail += " · 测试未通过或回执不完整：" + failure.Message; outcome = "测试失败/未确认"; }
-                        }
-                        else { detail += " · 调用完成，未附结构化测试回执，尚未确认通过"; outcome = "测试未确认"; }
+                        try { detail += " · " + AgentActivity.TestVerdict(item); outcome = "测试已验证通过"; }
+                        catch (Exception failure) when (failure is InvalidDataException or JsonException or InvalidOperationException or KeyNotFoundException)
+                        { detail += " · 测试未通过或回执不完整：" + failure.Message; outcome = "测试失败/未确认"; }
                     }
                     else if (completed && status is "failed" or "declined" or "interrupted") outcome = "失败/中断：" + status;
                     else if (completed) outcome = "调用完成；不代表验证通过";
                 }
-                else { stage = "Agent 执行"; detail = completed ? "Codex 活动已结束：" + status : "Codex 正在处理任务"; source = type; }
+                else if(type=="reasoning")
+                {
+                    stage="思考摘要";detail=completed?"Agent 已整理本阶段判断摘要":"Agent 正在梳理本轮目标与依据";source=type;
+                    if(completed)
+                    {
+                        string summary=AgentActivity.PublicSummary(item);
+                        if(!string.IsNullOrWhiteSpace(summary)){run.ReasoningItemId=item.GetProperty("id").GetString();run.ReasoningSummary=summary;}
+                    }
+                }
+                else { stage = "整理说明"; detail = completed ? "Agent 已完成本阶段说明" : "Agent 正在整理说明"; source = type; }
                 if (type is not ("commandExecution" or "mcpToolCall"))
                 {
                     outcome = completed ? status : "进行中";
@@ -171,6 +194,7 @@ public sealed partial class Workbench : IAsyncDisposable
             run.Progress ??= [];
             run.Progress.Add(new RunProgressEvent(run.ProgressUpdated.Value, stage, source, detail, outcome));
             if (run.Progress.Count > 500) run.Progress.RemoveRange(0, run.Progress.Count - 500);
+            activity=new {method="karolina/activity",@params=new {threadId=activeThread,turnId=activeTurn,runId=run.Id,stage,detail,outcome,at=run.ProgressUpdated,reasoningItemId=run.ReasoningItemId,reasoningSummary=run.ReasoningSummary,plan=run.ActivityPlan}};
             try { evidence.Save(run); }
             catch (Exception failure) when (failure is IOException or UnauthorizedAccessException)
             {
@@ -178,6 +202,7 @@ public sealed partial class Workbench : IAsyncDisposable
                 saveError = run.AfterStateError;
             }
         }
+        if(activity!=null)Emit(activity);
         if (saveError != null) Emit(new { method = "karolina/error", @params = new { message = saveError } });
     }
 
@@ -279,7 +304,7 @@ public sealed partial class Workbench : IAsyncDisposable
             lock (runProgressGate)
             {
                 var current = run;
-                return current == null ? null : new { current.Id, current.State, current.ProgressStage, current.ProgressMessage, current.ProgressUpdated, events = (current.Progress ?? []).TakeLast(24).ToArray() };
+                return current == null ? null : new { current.Id,current.ThreadId,turnId=activeTurn,current.Mode,current.Model,current.Started,current.Error,current.ReasoningItemId,current.ReasoningSummary,current.ActivityPlan,current.State, current.ProgressStage, current.ProgressMessage, current.ProgressUpdated, events = (current.Progress ?? []).TakeLast(24).ToArray() };
             }
         }
     }
@@ -322,7 +347,7 @@ public sealed partial class Workbench : IAsyncDisposable
             {
                 codex.Dispose();
                 if(busy)UpdateExplanationProgress("已中断", "程序完全退出，生成任务已终止；本轮未保存说明", active:false, error:run?.Error, persist:true);
-                busy = false; unity?.Dispose(); library.Dispose(); reviews.Dispose(); taskLock?.Dispose(); taskLock = null;
+                busy = false; unity?.Dispose(); library.Dispose(); reviews.Dispose(); projectGraph.Dispose(); taskLock?.Dispose(); taskLock = null;
                 lock (chats) { try { journal?.Dispose(); } finally { journal = null; approvals.Clear(); } }
             }
         }

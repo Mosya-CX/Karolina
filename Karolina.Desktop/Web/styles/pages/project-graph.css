@@ -22,4 +22,43 @@
 .graph-node-entry small{display:block;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .graph-truncated{display:block;padding:12px}
 .graph-context-state{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:6px 10px;margin:0 0 7px;color:var(--muted);font-size:11px}
+.graph-notice.stale{color:var(--warning,#d79b45)}
+.graph-view-filters{display:flex;gap:14px;flex-wrap:wrap;padding:14px 0}
+.graph-view-filters label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.graph-legend{display:flex;gap:15px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.graph-legend span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:6px;background:var(--graph-color)}
+.graph-category-code,.graph-legend-code{--graph-color:#699ee8}.graph-category-type,.graph-legend-type{--graph-color:#b096e5}.graph-category-scene,.graph-legend-scene{--graph-color:#e4a761}.graph-category-prefab,.graph-legend-prefab{--graph-color:#5cbaa4}.graph-category-art,.graph-legend-art{--graph-color:#da8fac}.graph-category-resource,.graph-legend-resource{--graph-color:#a1adb9}
+.graph-scope{font-size:11px;color:var(--muted);line-height:1.6}
+.graph-canvas-frame{position:relative;border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.graph-canvas-controls{display:flex;gap:7px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.graph-canvas-controls button{font-size:12px;padding:5px 10px}
+.graph-canvas{display:block;width:100%;height:clamp(360px,53vh,680px);touch-action:none;user-select:none;cursor:grab;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px}
+.graph-canvas:active{cursor:grabbing}.graph-node{cursor:pointer}.graph-node rect{fill:var(--panel);stroke:var(--graph-color);stroke-width:1.5}
+.graph-node.center rect{stroke-width:3}.graph-node:hover rect,.graph-node:focus rect{stroke-width:3.5}
+.graph-node-title{fill:var(--text);font-size:13px;font-weight:600}.graph-node-kind{fill:var(--muted);font-size:11px}
+.graph-edge{cursor:pointer}.graph-edge-line{fill:none;stroke:var(--muted);stroke-width:1.2;opacity:.7}.graph-edge-line.heuristic{stroke-dasharray:6 4}
+.graph-edge-hit{fill:none;stroke:transparent;stroke-width:18}.graph-edge:hover .graph-edge-line,.graph-edge:focus .graph-edge-line{stroke:var(--accent);stroke-width:2.5;opacity:1}
+.graph-arrow{fill:var(--muted)}.graph-edge-label{fill:var(--muted);font-size:10px;paint-order:stroke;stroke:var(--panel);stroke-width:4;stroke-linejoin:round}
+.graph-canvas-hint{font-size:11px;color:var(--muted);margin:0;padding:9px 12px;border-top:1px solid var(--line)}
+.graph-evidence{border:1px solid var(--line);border-radius:12px;margin-top:12px;padding:14px;background:var(--panel);overflow-wrap:anywhere}
+.graph-evidence h3{font-size:13px;margin:0 0 8px}.graph-evidence p{font-size:12px;margin:7px 0;line-height:1.6}.graph-evidence small{font-size:11px;color:var(--muted)}
+.graph-list-details{margin:16px 0}.graph-list-details summary{cursor:pointer;color:var(--muted);font-size:12px}.graph-basis-button{padding:3px 7px;font-size:10px;color:var(--muted)}
+.graph-workspace{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;height:100%;min-height:440px}
+.graph-visual{min-width:0;display:flex;flex-direction:column;gap:12px;min-height:0}
+.graph-overview-frame{display:flex;flex-direction:column;flex:1;min-height:380px}
+.graph-overview-canvas{flex:1;min-height:300px;height:100%;width:100%;cursor:grab}
+.graph-3d-stage{position:relative;flex:1;min-height:300px;overflow:hidden;background:radial-gradient(ellipse at center,color-mix(in srgb,var(--accent) 8%,var(--panel)),var(--panel))}
+.graph-3d-stage>.graph-3d-canvas{position:absolute;inset:0;height:100%;min-height:0;background:none}
+.graph-3d-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.graph-3d-labels span{position:absolute;font-size:11px;line-height:16px;padding:1px 4px;white-space:nowrap;border-radius:4px;color:var(--text);background:color-mix(in srgb,var(--panel) 88%,transparent)}
+.graph-3d-labels span.selected{color:var(--accent);border:1px solid var(--accent);font-weight:600}
+.graph-overview-count{margin-left:auto;align-self:center;font-size:11px;color:var(--muted)}
+.graph-inspector{min-width:0;overflow:auto;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:12px;color:var(--muted)}
+.graph-inspector h2{font-size:16px;color:var(--text);overflow-wrap:anywhere}.graph-inspector code{display:block;overflow-wrap:anywhere;font-size:11px;margin:10px 0}.graph-inspector>.graph-relations{margin-top:14px}
+.graph-inspector .graph-relation{overflow-wrap:anywhere;display:block;white-space:normal;font-size:12px}
+.graph-reference-evidence{font-size:11px;padding:5px 0;overflow-wrap:anywhere}.graph-reference-evidence summary{cursor:pointer}.graph-reference-evidence p{line-height:1.6}
+.graph-directory-summary,.graph-coverage-details{font-size:12px;padding:9px;color:var(--muted);line-height:1.6}
+.graph-coverage-details summary{cursor:pointer}.graph-legend-document{--graph-color:#d9bf70}.graph-legend-file{--graph-color:#89bdcc}
+@media(max-width:1100px){.graph-workspace{grid-template-columns:minmax(0,1fr) 240px}.graph-canvas-controls{flex-wrap:wrap}}
+@media(max-width:800px){.graph-workspace{grid-template-columns:minmax(0,1fr);height:auto}.graph-inspector{max-height:350px}.graph-overview-canvas{height:440px;flex:none}}
 @media(max-width:800px){.project-graph-page{padding:14px}.graph-toolbar{align-items:flex-start;flex-direction:column}.graph-actions{width:100%;flex-wrap:wrap}.graph-relations-grid{grid-template-columns:1fr}.graph-detail-heading{flex-direction:column}}

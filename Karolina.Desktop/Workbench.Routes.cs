@@ -22,7 +22,7 @@ public sealed partial class Workbench
             if (context.Request.Host.Host != "127.0.0.1") { context.Response.StatusCode = 403; return; }
             context.Response.Headers["X-Content-Type-Options"] = "nosniff";
             context.Response.Headers["Content-Security-Policy"] = $"default-src 'self'; script-src 'self'; style-src 'self' 'nonce-{token}'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'";
-            if (context.Request.Path.StartsWithSegments("/api") && (context.Request.Headers["X-Karolina-Session"] != token || context.Request.Headers.TryGetValue("Origin", out var origin) && origin != $"http://{context.Request.Host}")) { context.Response.StatusCode = 403; return; }
+            if ((context.Request.Path.StartsWithSegments("/api") || context.Request.Path.StartsWithSegments("/mcp")) && (context.Request.Headers["X-Karolina-Session"] != token || context.Request.Headers.TryGetValue("Origin", out var origin) && origin != $"http://{context.Request.Host}")) { context.Response.StatusCode = 403; return; }
             try { await next(); }
             catch (Exception e) { context.Response.StatusCode = e is ArgumentException or InvalidDataException or KeyNotFoundException ? 400 : 409; await context.Response.WriteAsJsonAsync(new { error = e.Message }); }
         });
@@ -98,6 +98,9 @@ public sealed partial class Workbench
         app.MapGet("/api/project-graph/status", () => projectGraph.Status());
         app.MapGet("/api/project-graph/nodes", (string? query, string? kind, int? take) => projectGraph.Search(query, kind, take ?? 250));
         app.MapGet("/api/project-graph/node", (string id) => projectGraph.Node(id));
+        app.MapGet("/api/project-graph/overview", () => projectGraph.Overview());
+        app.MapGet("/api/project-graph/neighbors", (string id, int? depth, string? direction, string? relation, int? take) => projectGraph.Neighborhood(id, depth ?? 1, direction ?? "both", relation, take ?? 80));
+        app.MapPost("/mcp/project-graph", (Delegate)GraphMcp);
         app.MapPost("/api/project-graph/index", () => projectGraph.StartIndex());
         app.MapGet("/api/review/{id}", (string id) => ReviewView(reviews.Get(id)));
         app.MapGet("/api/review/{id}/diff", (string id, string path) => reviews.Diff(id, path));

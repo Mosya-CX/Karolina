@@ -46,7 +46,7 @@ internal static partial class Program
         File.WriteAllText(missingPrefab, $"--- !u!114 &2\nMonoBehaviour:\n  m_Script: {{fileID: 11500000, guid: {missingGuid}, type: 3}}\n");
 
         var project = new ProjectContext(fixture.Root);
-        var graph = new ProjectGraphService(project);
+        using var graph = new ProjectGraphService(project);
         await Case("图谱索引只读工程、建立C#类型和Unity GUID关系", async () =>
         {
             Check(!graph.Status().Indexed);
@@ -75,6 +75,8 @@ internal static partial class Program
             Check(File.Exists(project.StatePath("project-graph.json")));
             Check(File.ReadAllText(wolfPath).Contains("PhantomClass"));
         });
+
+        await GraphQueryChecks(graph, project, wolfPath);
 
         await Case("设置按工程原子保存、验证范围并保留损坏文件", () =>
         {
@@ -114,7 +116,7 @@ internal static partial class Program
     private static async Task<int> GraphProjectCheck(string root)
     {
         var project = new ProjectContext(root, requireUnity: true);
-        var graph = new ProjectGraphService(project);
+        using var graph = new ProjectGraphService(project);
         Console.WriteLine($"Starting read-only index: {project.Root}");
         graph.StartIndex();
         var status = await WaitForIndex(graph, 12_000, true);
