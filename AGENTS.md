@@ -29,4 +29,4 @@
 - 前端控制器注册回归：`node --test Karolina.Tests/FrontendRegistrationChecks.test.mjs`；界面修改还需实际加载页面检查启动错误、主题、输入及连接状态，JavaScript 语法检查不能替代。
 - 定向测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-settings`、`--task-reviews`。
 - 完整隔离套件（需传入含 `Docs` 的 Unity 测试工程）：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- <Unity工程根目录>`。
-- 真实工程静态图谱测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-project <Unity根目录>`。此入口只读扫描 Assets、Packages 和 ProjectSettings，并在测试工程 `.karolina/state` 写入索引快照。
+- 真实工程静态图谱测试：`dotnet run --project Karolina.Tests/Karolina.Tests.csproj -c Release -- --graph-project <Unity根目录>`。此入口只读扫描工程维护文件（排除缓存、构建输出与私有助手状态），并在测试工程 `.karolina/state` 写入索引快照。
